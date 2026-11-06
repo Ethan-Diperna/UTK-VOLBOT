@@ -1,0 +1,11 @@
+.env
+data/raw/
+data/chroma/
+data/*.pkl
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+benchmark/baseline_responses/*.jsonl
+benchmark/baseline_responses/*.json
