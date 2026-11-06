@@ -9,3 +9,4 @@ __pycache__/
 venv/
 benchmark/baseline_responses/*.jsonl
 benchmark/baseline_responses/*.json
+benchmark/baseline_responses/*.bak

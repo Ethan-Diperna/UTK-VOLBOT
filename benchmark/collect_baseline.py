@@ -122,16 +122,52 @@ def run(split: str, variant: str, stream=sys.stdin, out=sys.stdout,
     return saved
 
 
+def record(split: str, qid: str, from_file: Path | None, variant: str, notes: str,
+           questions: list[dict], out=sys.stdout, sources_file: Path | None = None) -> dict:
+    """Save one response without the interactive prompt. Refuses duplicates and
+    empty text so a scripted collector cannot silently corrupt the file.
+    sources_file: optional JSON list of {id, role, title, url, snippet} as shown
+    in the assistant's Sources panel, stored under "sources"."""
+    if from_file is None:
+        raise SystemExit("--record needs --from FILE")
+    q = next((x for x in questions if x["id"] == qid), None)
+    if q is None:
+        raise SystemExit(f"unknown question id {qid} in split {split}")
+    path = responses_path(split)
+    if qid in load_responses(path):
+        raise SystemExit(f"{qid} already recorded in {path.name}; delete it first to redo")
+    text = from_file.read_text(encoding="utf-8").strip()
+    if not text:
+        raise SystemExit("empty response, not saved")
+    row = {**make_row(q, text, variant), "notes": notes}
+    if sources_file is not None:
+        row["sources"] = json.loads(sources_file.read_text(encoding="utf-8"))
+    append_response(path, row)
+    print(f"saved {qid} ({len(text)} chars) -> {path.name}", file=out)
+    return row
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", choices=["dev", "test"], required=True)
     ap.add_argument("--variant", default="",
                     help="which UT Verse gallery assistant you used, e.g. 'default chat'")
     ap.add_argument("--status", action="store_true")
+    ap.add_argument("--record", metavar="ID",
+                    help="non-interactive: save the response read from --from for this question id")
+    ap.add_argument("--from", dest="from_file", type=Path,
+                    help="file holding the raw response text (used with --record)")
+    ap.add_argument("--notes", default="", help="free-text note stored on the row (used with --record)")
+    ap.add_argument("--sources", dest="sources_file", type=Path,
+                    help="JSON file with the assistant's cited sources (used with --record)")
     a = ap.parse_args()
+    questions = load(DEV_PATH if a.split == "dev" else TEST_PATH)
     if a.status:
-        questions = load(DEV_PATH if a.split == "dev" else TEST_PATH)
         show_status(questions, load_responses(responses_path(a.split)))
+        return
+    if a.record:
+        record(a.split, a.record, a.from_file, a.variant, a.notes, questions,
+               sources_file=a.sources_file)
         return
     variant = a.variant or input("Which UT Verse assistant are you using (name as shown in the gallery)? ").strip()
     print(f"Baseline: {cfg.BASELINE_NAME} / {variant}. Use a fresh conversation for every question.")
