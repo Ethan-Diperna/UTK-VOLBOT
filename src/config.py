@@ -73,6 +73,14 @@ CHUNK_MAX_WORDS = 250
 CHUNK_OVERLAP_LINES = 2      # lines repeated when one long section is split
 CHUNK_OVERLAP_SECTIONS = 1   # sections repeated between "packed" chunks
 
+# ---- Retrieval (Phase 4). The final mode is chosen on the dev set in Phase 6. ----
+RETRIEVAL_MODE = "hybrid_rerank"   # vector | bm25 | hybrid | hybrid_rerank
+TOP_K = 5                          # chunks handed to the LLM
+RETRIEVAL_CANDIDATES = 20          # depth of each search before fusion / reranking
+# RRF constant from the original paper (Cormack, Clarke, Buettcher 2009). A
+# larger value flattens the difference between rank 1 and rank 10.
+RRF_K = 60
+
 # ---- Models (names are config, not hardcoded in logic) ----
 # Model ids verified against the claude-api skill reference on 2026-10-30.
 # Generation uses the current Opus; the LLM judge uses the cheaper current
