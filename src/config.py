@@ -87,6 +87,15 @@ RRF_K = 60
 # Sonnet. Override either in .env.
 GENERATION_MODEL = os.getenv("GENERATION_MODEL", "claude-opus-5-5")
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "claude-sonnet-5-5")
+# Generation settings (Phase 5), checked against the claude-api reference on
+# 2026-11-12. Claude Opus 5.5 always thinks; "effort" is the only depth control
+# and "medium" is that model's default. Tuned on dev only in Phase 6.
+GENERATION_EFFORT = os.getenv("GENERATION_EFFORT", "medium")   # low | medium | high | xhigh | max
+GENERATION_MAX_TOKENS = 16000   # ceiling, not a target; answers are a few sentences
+# If a safety classifier declines a request, the API re-runs it on a fallback
+# model instead of failing. The model that actually answered is recorded on
+# every result. Set to "" to turn this off.
+GENERATION_FALLBACK_BETA = "server-side-fallback-2026-07-01"
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 # The bge-small-en-v1.5 model card (read 2026-11-12) says to prepend this
 # instruction to short queries, and nothing to passages.
