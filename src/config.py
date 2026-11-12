@@ -57,6 +57,21 @@ PROCESSED_DIR = DATA_DIR / "processed"
 MANIFEST_PATH = RAW_DIR / "manifest.jsonl"
 COURSE_INDEX_PATH = RAW_DIR / "course_index.json"
 DOCS_PATH = PROCESSED_DIR / "docs.jsonl"
+CHUNKS_PATH = PROCESSED_DIR / "chunks.jsonl"
+CHROMA_DIR = DATA_DIR / "chroma"            # persistent vector index (gitignored)
+BM25_PATH = DATA_DIR / "bm25_tokens.json"   # tokenized chunks for keyword search
+CHROMA_COLLECTION = "catalog_chunks"
+
+# ---- Chunking (Phase 3). Tuned on the dev set only in Phase 6. ----
+# "section": one chunk per program-page section (split further only if too big).
+# "packed": neighbouring sections merged up to CHUNK_MAX_WORDS, with overlap.
+CHUNK_STRATEGY = "section"
+# The embedding model reads at most 512 tokens. Measured on 2026-11-12: with
+# 250 words the longest chunk is 317 tokens, so nothing is cut off. index.py
+# prints the longest chunk on every build; keep it under 512 when tuning.
+CHUNK_MAX_WORDS = 250
+CHUNK_OVERLAP_LINES = 2      # lines repeated when one long section is split
+CHUNK_OVERLAP_SECTIONS = 1   # sections repeated between "packed" chunks
 
 # ---- Models (names are config, not hardcoded in logic) ----
 # Model ids verified against the claude-api skill reference on 2026-10-30.
@@ -65,6 +80,9 @@ DOCS_PATH = PROCESSED_DIR / "docs.jsonl"
 GENERATION_MODEL = os.getenv("GENERATION_MODEL", "claude-opus-5-5")
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "claude-sonnet-5-5")
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+# The bge-small-en-v1.5 model card (read 2026-11-12) says to prepend this
+# instruction to short queries, and nothing to passages.
+EMBEDDING_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 # ---- Baseline system under comparison (decided 2026-10-30) ----
