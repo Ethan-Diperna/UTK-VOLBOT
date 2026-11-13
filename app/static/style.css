@@ -1,0 +1,186 @@
+:root {
+  --paper: #faf8f3;
+  --ink: #24221f;
+  --muted: #6f6a62;
+  --line: #e4dfd5;
+  --card: #ffffff;
+  --accent: #b5532f;
+  --accent-ink: #ffffff;
+  --error: #9b2c2c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.55 Georgia, "Times New Roman", serif;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 2rem;
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.sub { margin: 0 0 1.6rem; color: var(--muted); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem 1rem 0.7rem;
+  box-shadow: 0 1px 2px rgba(36, 34, 31, 0.04);
+}
+
+textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+form:focus-within { border-color: var(--accent); }
+
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+
+.options { color: var(--muted); font: 0.85rem/1.4 system-ui, sans-serif; }
+.options summary { cursor: pointer; padding: 0.45rem 0; }
+.options label { display: block; margin: 0.3rem 0 0.2rem; }
+.options select { font: inherit; padding: 0.25rem 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
+
+button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
+
+#send {
+  border: 0;
+  border-radius: 9px;
+  padding: 0.65rem 1.25rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+#send:disabled { opacity: 0.55; cursor: wait; }
+#send:focus-visible, .chip:focus-visible, a:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.9rem 0 0; }
+
+.chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.chip:hover { border-color: var(--accent); color: var(--ink); }
+
+#status { margin: 1.5rem 0 0; color: var(--muted); font-style: italic; }
+#status.error { color: var(--error); font-style: normal; }
+
+#result { margin-top: 1.75rem; }
+#answer p { margin: 0 0 0.85rem; }
+#answer ul { margin: 0 0 0.85rem; padding-left: 1.3rem; }
+#answer li { margin-bottom: 0.3rem; }
+
+a { color: var(--accent); }
+
+a.cite {
+  display: inline-block;
+  min-width: 1.35em;
+  margin: 0 0.12em;
+  padding: 0 0.3em;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--card);
+  font: 600 0.72rem/1.5 system-ui, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: 0.15em;
+}
+
+a.cite:hover { border-color: var(--accent); }
+
+#sources-panel {
+  margin-top: 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font: 0.9rem/1.5 system-ui, sans-serif;
+}
+
+#sources-panel > summary { cursor: pointer; font-weight: 600; }
+#source-count { color: var(--muted); font-weight: 400; }
+#sources { margin: 0.7rem 0 0; padding-left: 1.6rem; }
+#sources li, #other-sources li { margin-bottom: 0.55rem; }
+.other-sources { margin-top: 0.8rem; color: var(--muted); }
+.other-sources > summary { cursor: pointer; }
+#other-sources { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+#other-source-count { font-weight: 400; }
+
+.badge {
+  margin-left: 0.45rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.7rem;
+}
+
+.excerpt summary { cursor: pointer; color: var(--muted); font-size: 0.82rem; }
+
+.excerpt pre {
+  margin: 0.35rem 0 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font: 0.8rem/1.45 ui-monospace, Consolas, monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.meta { margin: 0.9rem 0 0; color: var(--muted); font: 0.8rem/1.4 system-ui, sans-serif; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font: 0.8rem/1.5 system-ui, sans-serif;
+}
+
+@media (max-width: 480px) {
+  main { padding-top: 2rem; }
+  h1 { font-size: 1.55rem; }
+}

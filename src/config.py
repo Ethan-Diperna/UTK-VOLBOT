@@ -117,6 +117,13 @@ JUDGE_MAX_TOKENS = 4000      # a grade is a few lines of JSON plus hidden thinki
 EVAL_WORKERS = 4             # parallel answer+judge calls during an eval run
 EVAL_INDEX_DIR = DATA_DIR / "eval_indexes"       # indexes for non-default chunking (gitignored)
 RESULTS_DIR = ROOT / "benchmark" / "results"     # one folder per eval run
+# ---- Web app (Phase 8) ----
+# Every question costs API money (about 4 cents), so a public demo needs
+# limits. Both can be raised or lowered in .env without touching code.
+API_MAX_QUESTION_CHARS = 500
+API_RATE_WINDOW_SECONDS = 60
+API_RATE_LIMIT_PER_CLIENT = int(os.getenv("API_RATE_LIMIT_PER_CLIENT", "5"))   # questions per window per IP
+API_DAILY_REQUEST_CAP = int(os.getenv("API_DAILY_REQUEST_CAP", "200"))         # all clients together, per 24 h
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 # The bge-small-en-v1.5 model card (read 2026-11-12) says to prepend this
 # instruction to short queries, and nothing to passages.
