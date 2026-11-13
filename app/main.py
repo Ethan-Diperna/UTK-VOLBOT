@@ -2,7 +2,9 @@
 
   python -m uvicorn app.main:app --port 8000      # then open http://localhost:8000
 
-  POST /ask     {"question": "...", "mode": "hybrid_rerank"}   mode is optional
+  POST /ask     {"question": "...", "mode": "hybrid_rerank", "history": [...]}
+                mode and history are optional; history is the last few
+                {"question", "answer"} turns, used to understand a follow-up
   GET  /health  status, catalog year, whether the index and key are in place
   GET  /        the one-page frontend (app/static)
 
@@ -26,11 +28,12 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, ConfigDict, StringConstraints
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from src import config as cfg
 from src.context import build_context
+from src.followup import standalone_question
 from src.generate import GenerationError, generate
 from src.retrieve import MODES, Retriever
 
@@ -53,13 +56,26 @@ MESSAGES = {
 }
 
 
+Question = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1,
+                                            max_length=cfg.API_MAX_QUESTION_CHARS)]
+
+
+class Turn(BaseModel):
+    """One earlier question and its answer, sent back by the page. The server
+    keeps no chat state; this text is only used to rewrite a follow-up."""
+    model_config = ConfigDict(extra="forbid")
+
+    question: Question
+    answer: Annotated[str, StringConstraints(max_length=cfg.API_MAX_HISTORY_ANSWER_CHARS)]
+
+
 class AskRequest(BaseModel):
     """Input for /ask. Unknown fields are rejected rather than ignored."""
     model_config = ConfigDict(extra="forbid")
 
-    question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1,
-                                               max_length=cfg.API_MAX_QUESTION_CHARS)]
+    question: Question
     mode: Literal[MODES] | None = None   # None means the configured default
+    history: Annotated[list[Turn], Field(max_length=cfg.API_MAX_HISTORY_TURNS)] = []
 
 
 class RateLimiter:
@@ -127,18 +143,21 @@ def _failure(status: int, kind: str, message: str, headers: dict | None = None, 
     return JSONResponse(body, status_code=status, headers=headers)
 
 
-def _public_result(result: dict, mode: str) -> dict:
-    """Only what the page needs: no token counts, scores or internal fields."""
+def _public_result(result: dict, mode: str, searched_as: str | None) -> dict:
+    """Only what the page needs: no token counts, scores or internal fields.
+    `searched_as` is the rewritten follow-up, or None if nothing was rewritten."""
     sources = [{"n": n, "id": c["id"], "title": c["title"], "section": c.get("section", ""), "url": c["url"],
                 "text": c["text"], "added_by": c.get("added_by", "search")}
                for n, c in enumerate(result["chunks"], start=1)]
     return {"answer": result["answer"], "citations": result["citations"], "sources": sources,
-            "mode": mode, "model": result.get("model"), "latency_s": result.get("latency_s")}
+            "searched_as": searched_as, "mode": mode, "model": result.get("model"), "latency_s": result.get("latency_s")}
 
 
-def create_app(answer_fn: Callable[[str, str], dict] | None = None, limiter: RateLimiter | None = None) -> FastAPI:
-    """Build the app. Tests pass a fake `answer_fn` and their own limiter."""
+def create_app(answer_fn: Callable[[str, str], dict] | None = None, limiter: RateLimiter | None = None,
+               rewrite_fn: Callable[[str, list[dict]], str] | None = None) -> FastAPI:
+    """Build the app. Tests pass a fake `answer_fn`, `rewrite_fn` and their own limiter."""
     answer = answer_fn or default_pipeline()
+    rewrite = rewrite_fn or standalone_question
     limits = limiter or RateLimiter(cfg.API_RATE_LIMIT_PER_CLIENT, cfg.API_RATE_WINDOW_SECONDS,
                                     cfg.API_DAILY_REQUEST_CAP)
     app = FastAPI(title="UTK Catalog Assistant (unofficial)", docs_url=None, redoc_url=None)
@@ -187,14 +206,19 @@ def create_app(answer_fn: Callable[[str, str], dict] | None = None, limiter: Rat
                        else f"Too many questions in a short time. Please wait {wait_s} seconds.")
             return _failure(429, "rate_limited", message, headers={"Retry-After": str(wait_s)})
         mode = body.mode or cfg.RETRIEVAL_MODE
+        # A follow-up is first rewritten to stand on its own (src/followup.py).
+        # Without history this is skipped and the question is used as typed.
+        history = [turn.model_dump() for turn in body.history]
+        question = rewrite(body.question, history) if history else body.question
         try:
-            result = answer(body.question, mode)
+            result = answer(question, mode)
         except GenerationError as e:
             log.warning("generation failed (%s): %s", e.kind, e)
             if e.kind == "refusal":
                 return _failure(422, "declined", MESSAGES["declined"])
             return _failure(503, "unavailable", MESSAGES["busy" if e.retryable else "down"], retryable=e.retryable)
-        return {"success": True, "data": _public_result(result, mode), "error": None}
+        searched_as = question if question != body.question else None
+        return {"success": True, "data": _public_result(result, mode, searched_as), "error": None}
 
     @app.get("/", include_in_schema=False)
     def home() -> FileResponse:

@@ -84,6 +84,7 @@ body {
   overflow-wrap: anywhere;
 }
 
+.bot-msg .understood { margin: 0 0 0.7rem; color: var(--muted); font: 0.8rem/1.4 system-ui, sans-serif; }
 .bot-msg .pending { margin: 0; color: var(--muted); font-style: italic; }
 .bot-msg .error { margin: 0; color: var(--error); }
 

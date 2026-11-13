@@ -124,6 +124,13 @@ API_MAX_QUESTION_CHARS = 500
 API_RATE_WINDOW_SECONDS = 60
 API_RATE_LIMIT_PER_CLIENT = int(os.getenv("API_RATE_LIMIT_PER_CLIENT", "5"))   # questions per window per IP
 API_DAILY_REQUEST_CAP = int(os.getenv("API_DAILY_REQUEST_CAP", "200"))         # all clients together, per 24 h
+# Chat memory (added after the benchmark, see src/followup.py). The page sends
+# the last few turns with a follow-up; a small, cheap model rewrites the
+# follow-up into a standalone question before the benchmarked pipeline runs.
+API_MAX_HISTORY_TURNS = 3
+API_MAX_HISTORY_ANSWER_CHARS = 4000   # per earlier answer; the page trims longer ones
+REWRITE_MODEL = os.getenv("REWRITE_MODEL", "claude-haiku-5-5")
+REWRITE_MAX_TOKENS = 1000    # one line of output; headroom in case the model thinks first
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 # The bge-small-en-v1.5 model card (read 2026-11-12) says to prepend this
 # instruction to short queries, and nothing to passages.

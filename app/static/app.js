@@ -13,6 +13,21 @@ const sendButton = byId("send");
 const CATALOG_PREFIX = "https://catalog.utk.edu/";
 const PENDING_TEXT = "Searching the catalog and writing an answer…";
 
+// Chat memory. The server keeps nothing between questions, so the page sends
+// the last few answered turns along with each new question; the server uses
+// them to work out what a follow-up like "what are its prerequisites?" means.
+// Both limits match the server's (src/config.py); it rejects anything larger.
+const MAX_HISTORY_TURNS = 3;
+const MAX_HISTORY_ANSWER_CHARS = 4000;
+
+// Adds a turn and returns a new list (the old one is left untouched).
+function withTurn(history, question, answer) {
+  const turn = { question, answer: answer.slice(0, MAX_HISTORY_ANSWER_CHARS) };
+  return [...history, turn].slice(-MAX_HISTORY_TURNS);
+}
+
+let history = [];
+
 function element(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -146,6 +161,10 @@ function addTurn(question) {
 function showReply(reply, data) {
   const citations = numberForDisplay(data.citations);
   const parts = [answerNode(data.answer, citations), sourcesNode(data.sources, citations)];
+  // Show how a follow-up was understood, so a wrong guess is easy to spot.
+  if (typeof data.searched_as === "string" && data.searched_as) {
+    parts.unshift(element("p", "understood", "Understood as: " + data.searched_as));
+  }
   if (typeof data.latency_s === "number") {
     parts.push(element("p", "meta", "Answered in " + data.latency_s.toFixed(1) + " s"));
   }
@@ -173,9 +192,8 @@ async function ask(question) {
   setLoading(true);
   const reply = addTurn(question);
   questionBox.value = "";
-  // Only the question is sent: the server keeps no memory of earlier turns,
-  // and no "mode", so it uses its configured search method.
-  const payload = { question };
+  // No "mode" is sent, so the server uses its configured search method.
+  const payload = { question, history };
   try {
     const response = await fetch("/ask", {
       method: "POST",
@@ -190,6 +208,7 @@ async function ask(question) {
       return;
     }
     showReply(reply, body.data);
+    history = withTurn(history, question, body.data.answer);
   } catch (networkError) {
     showError(reply, "Could not reach the server. Check your connection and try again.");
   } finally {

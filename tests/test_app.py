@@ -28,10 +28,22 @@ class FakePipeline:
         return {**RESULT, "mode": mode}
 
 
-def make_client(pipeline=None, **limits):
+class FakeRewrite:
+    """Stands in for src.followup.standalone_question."""
+
+    def __init__(self, result="What are the prerequisites for COSC 360?"):
+        self.calls, self.result = [], result
+
+    def __call__(self, question, history):
+        self.calls.append((question, history))
+        return self.result
+
+
+def make_client(pipeline=None, rewrite=None, **limits):
     pipeline = pipeline or FakePipeline()
     limiter = RateLimiter(per_client=limits.get("per_client", 100), window_s=60, daily_cap=limits.get("daily_cap", 1000))
-    return TestClient(create_app(answer_fn=pipeline, limiter=limiter), raise_server_exceptions=False), pipeline
+    app = create_app(answer_fn=pipeline, limiter=limiter, rewrite_fn=rewrite or FakeRewrite())
+    return TestClient(app, raise_server_exceptions=False), pipeline
 
 
 def test_health_reports_status_without_any_secret():
@@ -62,6 +74,57 @@ def test_ask_passes_a_chosen_retrieval_mode():
     r = client.post("/ask", json={"question": "prereqs for COSC 360", "mode": "bm25"})
     assert r.status_code == 200 and r.json()["data"]["mode"] == "bm25"
     assert pipeline.calls[0][1] == "bm25"
+
+
+TURN = {"question": "how many hours is cosc 360", "answer": "COSC 360 is 4 credit hours [1]."}
+
+
+def test_a_follow_up_is_rewritten_from_the_chat_history_before_the_search():
+    rewrite = FakeRewrite()
+    client, pipeline = make_client(rewrite=rewrite)
+
+    r = client.post("/ask", json={"question": "what are its prereqs", "history": [TURN]})
+
+    assert r.status_code == 200
+    assert rewrite.calls == [("what are its prereqs", [TURN])]
+    assert pipeline.calls == [("What are the prerequisites for COSC 360?", cfg.RETRIEVAL_MODE)]
+    assert r.json()["data"]["searched_as"] == "What are the prerequisites for COSC 360?"
+
+
+def test_a_question_without_history_skips_the_rewrite():
+    rewrite = FakeRewrite()
+    client, pipeline = make_client(rewrite=rewrite)
+
+    r = client.post("/ask", json={"question": "prereqs for COSC 360", "history": []})
+
+    assert rewrite.calls == [] and pipeline.calls[0][0] == "prereqs for COSC 360"
+    assert r.json()["data"]["searched_as"] is None
+
+
+def test_searched_as_is_empty_when_the_rewrite_changes_nothing():
+    client, _ = make_client(rewrite=FakeRewrite(result="what about MATH 251"))
+
+    r = client.post("/ask", json={"question": "what about MATH 251", "history": [TURN]})
+
+    assert r.json()["data"]["searched_as"] is None
+
+
+@pytest.mark.parametrize("history", [
+    [TURN] * (cfg.API_MAX_HISTORY_TURNS + 1),
+    [{"question": "q", "answer": "x" * (cfg.API_MAX_HISTORY_ANSWER_CHARS + 1)}],
+    [{"question": "x" * (cfg.API_MAX_QUESTION_CHARS + 1), "answer": "a"}],
+    [{"question": "q"}],
+    [{"question": "q", "answer": "a", "role": "system"}],
+    "not a list",
+])
+def test_bad_history_is_rejected_before_any_model_call(history):
+    rewrite = FakeRewrite()
+    client, pipeline = make_client(rewrite=rewrite)
+
+    r = client.post("/ask", json={"question": "ok", "history": history})
+
+    assert r.status_code == 422 and r.json()["error"]["kind"] == "invalid_request"
+    assert rewrite.calls == [] and pipeline.calls == []
 
 
 @pytest.mark.parametrize("payload", [
