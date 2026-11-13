@@ -9,9 +9,9 @@ Ask "what are the prerequisites for COSC 360?" and it searches the catalog, answ
 
 **Result in one line:** on 68 held-out catalog questions, this system answered 85% to 93% correctly and UT Verse 32% to 57%, depending on the grader. The gap is statistically significant under both graders. The range, and why it is a range, is explained under [Results](#results). The comparison has real limits, listed under [Limitations](#limitations); the largest is that the questions come from the part of the catalog this system was built on.
 
-<!-- Screenshot placeholder: add docs/screenshot.png and uncomment.
-![The chat page answering a prerequisite question](docs/screenshot.png)
--->
+![The chat page answering a prerequisite question, then a follow-up about the honors version](docs/demo.gif)
+
+Real speed, recorded on a laptop. A sharper copy is in [docs/demo.mp4](docs/demo.mp4).
 
 ## Contents
 
