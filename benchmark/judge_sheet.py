@@ -11,6 +11,7 @@ This costs API money: about one cent per response.
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -65,6 +66,11 @@ def append_rows(path: Path, rows: list[dict]) -> None:
 
 
 def main() -> None:
+    # No options, but parsing arguments means --help prints help instead of
+    # starting a run that calls the paid API.
+    argparse.ArgumentParser(description="Grade every not-yet-judged response on the blind sheet with the "
+                                        "LLM judge. Calls the Anthropic API: about one cent per response."
+                            ).parse_args()
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     sheet = load_sheet(SHEET_PATH)

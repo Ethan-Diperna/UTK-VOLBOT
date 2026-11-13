@@ -15,6 +15,7 @@ Program page layout (preview_program.php):
 """
 from __future__ import annotations
 
+import argparse
 import json
 import re
 from collections import Counter
@@ -194,8 +195,16 @@ def print_samples(docs: list[dict], n: int = 2) -> None:
             print("TEXT:", d["text"][:900])
 
 
-if __name__ == "__main__":
+def main() -> None:
+    # No options, but parsing arguments means --help prints help instead of
+    # rewriting docs.jsonl.
+    argparse.ArgumentParser(description="Rebuild data/processed/docs.jsonl from the scraped pages in "
+                                        "data/raw/, then print stats and samples.").parse_args()
     all_docs = build_docs()
     write_docs(all_docs)
     print_stats(all_docs)
     print_samples(all_docs)
+
+
+if __name__ == "__main__":
+    main()

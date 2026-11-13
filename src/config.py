@@ -25,10 +25,12 @@ NAVOID_CERTIFICATES = 12114  # "Undergraduate Certificates A-Z"
 # robots.txt (fetched 2026-10-30) says `crawl-delay: 120` for all bots and
 # disallows /ajax/, /portfolio.php, /search_advanced.php. We honor it.
 ROBOTS_CRAWL_DELAY_SECONDS = 120
-USER_AGENT = (
-    "utk-catalog-rag/0.1 (UTK student course-catalog research project; "
-    "contact dipernaem@gmail.com)"
-)
+# The scraper tells the site who is asking. Set SCRAPER_CONTACT in .env to an
+# address you can be reached at; no personal address is kept in the code.
+# Without it, the project page is given as the contact.
+SCRAPER_CONTACT = os.getenv("SCRAPER_CONTACT", "https://github.com/Ethan-Diperna/UTK-VOLBOT")
+AGENT_NAME = "utk-catalog-rag/0.1 (UTK student course-catalog research project; contact {contact})"
+USER_AGENT = AGENT_NAME.format(contact=SCRAPER_CONTACT)
 
 # Limited default scope. `--all` in scrape.py overrides.
 DEFAULT_COURSE_PREFIXES = ["COSC", "MATH", "ECE", "AI", "DATA"]

@@ -26,6 +26,7 @@ Real speed, recorded on a laptop. A sharper copy is in [docs/demo.mp4](docs/demo
 - [Reproduce the benchmark](#reproduce-the-benchmark)
 - [Deploying a public demo](#deploying-a-public-demo)
 - [Project layout](#project-layout)
+- [Licence and data](#licence-and-data)
 
 ## What it does
 
@@ -164,7 +165,7 @@ The goal was a comparison that would survive questioning, including results that
 |---|---|---|
 | Questions | 44 | 68 |
 | Derived from catalog pages | 22 | 50 |
-| Written by me | 16 | 17 |
+| Free-form questions in a student's wording | 16 | 17 |
 | Typo and slang phrasings | 6 | 1 |
 
 The split is random and stratified by category (seed 20261106). 15 of the 112 questions are deliberately unanswerable from the catalog.
@@ -277,7 +278,7 @@ Sending whole program pages gives most of the gain and most of the cost.
 - **The LLM judge shares a model family with this system's generator.** Both are Claude models. The judge also cannot see catalog pages.
 - **One snapshot in time.** UT Verse answers were collected in November 2026. It may have changed since.
 - **Collection settings were not verified for every UT Verse answer** (23 test and 12 dev answers), and its source lists are missing for 14 of the 59 answerable test questions.
-- **Test set composition.** Only one typo-and-slang question landed in the test split. No questions came from classmates, so phrasing reflects one person plus the catalog. Two pairs of near-duplicate questions are split across dev and test.
+- **Test set composition.** Only one typo-and-slang question landed in the test split. No questions came from classmates, so phrasing reflects this project's own wording plus the catalog. Two pairs of near-duplicate questions are split across dev and test.
 - **The test run is recorded with uncommitted files in the working tree** (grading files only; the frozen config and test hash matched).
 
 **The system itself.**
@@ -335,7 +336,7 @@ python -m pytest -q
 
 The first command shows ranked chunks from every search mode and makes no API call. The second answers one question from the terminal and does cost money. The test suite (230 tests) uses fake model clients and makes no API calls.
 
-Settings that can be overridden in `.env`: `GENERATION_MODEL`, `JUDGE_MODEL`, `REWRITE_MODEL`, `GENERATION_EFFORT`, `API_RATE_LIMIT_PER_CLIENT`, `API_DAILY_REQUEST_CAP`. Everything else is in `src/config.py`.
+Settings that can be overridden in `.env`: `GENERATION_MODEL`, `JUDGE_MODEL`, `REWRITE_MODEL`, `GENERATION_EFFORT`, `API_RATE_LIMIT_PER_CLIENT`, `API_DAILY_REQUEST_CAP`, and `SCRAPER_CONTACT` (the contact address the scraper sends to the catalog site). Everything else is in `src/config.py`.
 
 To re-scrape, see `python -m src.scrape --help`. A full scrape of the default scope takes several hours because of the 120-second delay.
 
@@ -388,6 +389,7 @@ Choosing a host:
 - **Memory.** The running app measured about 820 MB with both search models loaded. Hosts that give 512 MB are too small, which rules out Render's free plan (512 MB, per its documentation on 2026-11-13). Pick a plan with 1 GB or more.
 - **Hugging Face Spaces** gives 16 GB on its basic CPU hardware, but its documentation (read 2026-11-13) says creating a Docker Space requires a paid plan. The `Dockerfile` follows its rules (user id 1000, port 7860). A Space also needs a short settings block at the top of its own README with `sdk: docker`.
 - Set `ANTHROPIC_API_KEY` as a host secret, never in the repository or the image.
+- Set a spend limit on the API key itself in the Anthropic Console. The app's own limits live in memory and reset whenever the server restarts, which some hosts do after every idle period, so they are a courtesy limit, not a guarantee.
 - Lower `API_DAILY_REQUEST_CAP`. At about 4 cents per answer, the default of 200 a day allows up to about $8 a day.
 - Behind a host's proxy, every visitor appears to come from the proxy's address. The image starts uvicorn with `--proxy-headers` so the per-client limit sees the real address. A visitor can fake that header to dodge the per-client limit, so the daily cap is the real protection for the API bill.
 
@@ -422,8 +424,18 @@ benchmark/
   results/          saved runs
 tests/              230 tests, model calls faked
 Dockerfile          container image for hosting the app
+LICENSE             MIT, for the code only
 data/processed/     cleaned catalog text and chunks
 ```
+
+## Licence and data
+
+The code is under the MIT licence (see `LICENSE`). Two things in this repository are not mine and are not covered by it:
+
+- **Catalog text** in `data/processed/`. This is the University of Tennessee's content, copied from its public catalog site. It is included so the search indexes and the benchmark can be rebuilt without re-scraping.
+- **UT Verse responses** in `benchmark/grading/blind_sheet.csv`. These are the output of the university's assistant, included so the grading can be checked.
+
+If the university would like either removed, open an issue and it will be taken down.
 
 ## A note on UT Verse
 
