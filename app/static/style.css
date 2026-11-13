@@ -46,7 +46,7 @@ h1::after {
   background: var(--accent);
 }
 
-.sub { margin: 0 0 1.6rem; color: var(--muted); }
+header { margin-bottom: 1.6rem; }
 
 .visually-hidden {
   position: absolute;
