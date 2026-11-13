@@ -292,7 +292,7 @@ Sending whole program pages gives most of the gain and most of the cost.
 
 ## Run it yourself
 
-Requires Python 3.11 or newer and an Anthropic API key. Developed on Windows with Python 3.11.9; installing from a fresh clone on another machine has not been tested.
+Requires Python 3.11 or newer and an Anthropic API key. Developed on Windows with Python 3.11.9. The steps below were checked on 2026-11-13 from a fresh clone in a new, empty virtual environment on the same machine: install, all 230 tests, index build and a search all worked. They have not been tried on macOS or Linux.
 
 ```bash
 git clone https://github.com/Ethan-Diperna/UTK-VOLBOT.git
