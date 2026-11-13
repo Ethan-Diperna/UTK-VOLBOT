@@ -152,6 +152,7 @@ def test_home_page_and_its_assets_are_served_with_security_headers():
     page = client.get("/")
     assert page.status_code == 200 and "text/html" in page.headers["content-type"]
     assert 'id="question"' in page.text and "/static/app.js" in page.text
+    assert 'id="thread"' in page.text                                    # the chat log the script fills
     assert "<script>" not in page.text                                   # no inline script: CSP stays strict
     assert client.get("/static/app.js").status_code == 200 and client.get("/static/style.css").status_code == 200
     assert page.headers["x-content-type-options"] == "nosniff"

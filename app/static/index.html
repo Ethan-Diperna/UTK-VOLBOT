@@ -7,49 +7,43 @@
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <main>
+  <!-- "is-empty" = no question asked yet: title and question box sit in the
+       middle of the screen. The first question removes the class and the page
+       becomes a chat: messages scroll in #thread, the box stays at the bottom. -->
+  <main id="app" class="is-empty">
     <header>
       <h1>UTK Catalog Assistant</h1>
     </header>
 
-    <form id="ask-form" autocomplete="off">
-      <label class="visually-hidden" for="question">Your question</label>
-      <textarea id="question" name="question" rows="2" maxlength="500" required
-                placeholder="EX: What are the prerequisites for COSC 360?"></textarea>
-      <div class="form-row">
-        <button id="send" type="submit">
-          <span class="label">Ask</span>
-          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        </button>
+    <section id="thread" role="log" aria-label="Conversation" hidden></section>
+
+    <div id="composer">
+      <form id="ask-form" autocomplete="off">
+        <label class="visually-hidden" for="question">Your question</label>
+        <textarea id="question" name="question" rows="2" maxlength="500" required
+                  placeholder="EX: What are the prerequisites for COSC 360?"></textarea>
+        <div class="form-row">
+          <button id="send" type="submit">
+            <span class="label">Ask</span>
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+        </div>
+      </form>
+
+      <div id="examples" class="chips" aria-label="Example questions">
+        <button type="button" class="chip">What are the prerequisites for COSC 360?</button>
+        <button type="button" class="chip">How many credit hours is MATH 251?</button>
+        <button type="button" class="chip">Does the Applied AI major have a capstone?</button>
       </div>
-    </form>
 
-    <div id="examples" class="chips" aria-label="Example questions">
-      <button type="button" class="chip">What are the prerequisites for COSC 360?</button>
-      <button type="button" class="chip">How many credit hours is MATH 251?</button>
-      <button type="button" class="chip">Does the Applied AI major have a capstone?</button>
+      <footer>
+        <p class="note-full">Unofficial student project, not affiliated with or endorsed by the University of
+          Tennessee. The catalog does not list instructors, class times or tuition. Confirm anything important
+          with your advisor before you register.</p>
+        <p class="note-short">Unofficial student project. Each question is answered on its own, without memory
+          of earlier ones. Confirm anything important with your advisor.</p>
+      </footer>
     </div>
-
-    <p id="status" role="status" aria-live="polite" hidden></p>
-
-    <article id="result" hidden>
-      <div id="answer"></div>
-      <details id="sources-panel">
-        <summary>Sources <span id="source-count"></span></summary>
-        <ol id="sources"></ol>
-        <details id="other-sources-panel" class="other-sources">
-          <summary>Other excerpts that were searched <span id="other-source-count"></span></summary>
-          <ul id="other-sources"></ul>
-        </details>
-      </details>
-      <p id="meta" class="meta"></p>
-    </article>
-
-    <footer>
-      <p>Unofficial student project, not affiliated with or endorsed by the University of Tennessee.
-        The catalog does not list instructors, class times or tuition. Confirm anything important with
-        your advisor before you register.</p>
-    </footer>
   </main>
   <script src="/static/app.js" defer></script>
 </body>

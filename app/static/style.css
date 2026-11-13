@@ -16,6 +16,7 @@
 * { box-sizing: border-box; }
 
 body {
+  height: 100dvh;
   margin: 0;
   border-top: 3px solid var(--accent);
   background: var(--paper);
@@ -23,11 +24,68 @@ body {
   font: 17px/1.55 Georgia, "Times New Roman", serif;
 }
 
-main {
-  max-width: 44rem;
-  margin: 0 auto;
-  padding: 3.5rem 1.25rem 2rem;
+/* Page layout: a column filling the window. Header on top, the message
+   thread in the middle (the only part that scrolls), question box at the
+   bottom. Everything lines up on one centred column, --column wide. */
+:root { --column: 44rem; --gutter: 1.25rem; }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
+#app > header, #composer {
+  width: 100%;
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Before the first question: title and box together in the middle. */
+#app.is-empty { justify-content: center; padding-bottom: 12vh; }
+#app.is-empty > header { margin-bottom: 1.6rem; }
+#app.is-empty .note-short { display: none; }
+
+/* Chat layout: small title bar, thread, box pinned to the bottom. */
+#app:not(.is-empty) > header { padding-top: 0.8rem; padding-bottom: 0.7rem; }
+#app:not(.is-empty) h1 { margin: 0; font-size: 1.1rem; }
+#app:not(.is-empty) h1::after { width: 1.6rem; height: 2px; margin-top: 0.3rem; }
+#app:not(.is-empty) .chips, #app:not(.is-empty) .note-full { display: none; }
+#app:not(.is-empty) #composer { padding-bottom: 0.6rem; }
+#app:not(.is-empty) footer { margin-top: 0.5rem; padding-top: 0; border-top: 0; text-align: center; font-size: 0.72rem; }
+
+#thread {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  border-top: 1px solid var(--line);
+  /* Side padding grows on wide windows so the messages stay in the centred
+     column while the scrollbar sits at the window edge. */
+  padding: 1.5rem max(var(--gutter), calc((100% - var(--column)) / 2 + var(--gutter))) 1rem;
+}
+
+.turn { margin-bottom: 2.2rem; }
+
+/* The newest turn is at least one screen tall, so a new question can scroll
+   to the top of the thread with its answer filling in underneath it. */
+.turn:last-child { min-height: 100%; margin-bottom: 0; }
+
+/* The question: a bubble on the right. The reply: plain text on the left. */
+.user-msg {
+  width: fit-content;
+  max-width: 85%;
+  margin: 0 0 1.2rem auto;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 14px 14px 4px 14px;
+  background: var(--card);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.bot-msg .pending { margin: 0; color: var(--muted); font-style: italic; }
+.bot-msg .error { margin: 0; color: var(--error); }
 
 h1 {
   margin: 0 0 0.4rem;
@@ -45,8 +103,6 @@ h1::after {
   border-radius: 2px;
   background: var(--accent);
 }
-
-header { margin-bottom: 1.6rem; }
 
 .visually-hidden {
   position: absolute;
@@ -194,13 +250,9 @@ button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
 
 .chip:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
 
-#status { margin: 1.5rem 0 0; color: var(--muted); font-style: italic; }
-#status.error { color: var(--error); font-style: normal; }
-
-#result { margin-top: 1.75rem; }
-#answer p { margin: 0 0 0.85rem; }
-#answer ul { margin: 0 0 0.85rem; padding-left: 1.3rem; }
-#answer li { margin-bottom: 0.3rem; }
+.answer p { margin: 0 0 0.85rem; }
+.answer ul { margin: 0 0 0.85rem; padding-left: 1.3rem; }
+.answer li { margin-bottom: 0.3rem; }
 
 a { color: var(--accent); }
 
@@ -219,25 +271,24 @@ a.cite {
 }
 
 a.cite:hover { background: var(--accent); color: var(--accent-ink); }
-#answer strong { color: #fff; }
+.answer strong { color: #fff; }
 
-#sources-panel {
-  margin-top: 1.25rem;
-  padding-top: 0.9rem;
+.sources-panel {
+  margin-top: 1.1rem;
+  padding-top: 0.8rem;
   border-top: 1px solid var(--line);
   font: 0.9rem/1.5 system-ui, sans-serif;
 }
 
-#sources-panel > summary { cursor: pointer; font-weight: 600; }
-#source-count { color: var(--muted); font-weight: 400; }
-#sources { margin: 0.7rem 0 0; padding-left: 1.6rem; }
-#sources li, #other-sources li { margin-bottom: 0.55rem; }
+.sources-panel > summary { cursor: pointer; font-weight: 600; }
+.sources-panel .count { color: var(--muted); font-weight: 400; }
+.sources { margin: 0.7rem 0 0; padding-left: 1.6rem; }
+.sources-panel li { margin-bottom: 0.55rem; }
 .other-sources { margin-top: 0.8rem; color: var(--muted); }
 .other-sources > summary { cursor: pointer; }
-#other-sources { margin: 0.6rem 0 0; padding-left: 1.2rem; }
-#other-source-count { font-weight: 400; }
+.other-sources > ul { margin: 0.6rem 0 0; padding-left: 1.2rem; }
 
-#sources li::marker { color: var(--accent); font-weight: 600; }
+.sources li::marker { color: var(--accent); font-weight: 600; }
 
 .excerpt summary { cursor: pointer; color: var(--muted); font-size: 0.82rem; }
 
@@ -256,14 +307,16 @@ a.cite:hover { background: var(--accent); color: var(--accent-ink); }
 .meta { margin: 0.9rem 0 0; color: var(--muted); font: 0.8rem/1.4 system-ui, sans-serif; }
 
 footer {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font: 0.8rem/1.5 system-ui, sans-serif;
 }
 
+footer p { margin: 0; }
+
 @media (max-width: 480px) {
-  main { padding-top: 2rem; }
-  h1 { font-size: 1.55rem; }
+  #app.is-empty h1 { font-size: 1.55rem; }
+  .user-msg { max-width: 92%; }
 }

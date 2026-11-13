@@ -4,21 +4,14 @@
 // innerHTML, so text from the model or the catalog can never run as HTML.
 
 const byId = (id) => document.getElementById(id);
+const app = byId("app");
+const thread = byId("thread");
 const form = byId("ask-form");
 const questionBox = byId("question");
 const sendButton = byId("send");
-const statusLine = byId("status");
-const resultBox = byId("result");
-const answerBox = byId("answer");
-const sourcesPanel = byId("sources-panel");
-const sourcesList = byId("sources");
-const sourceCount = byId("source-count");
-const otherSourcesPanel = byId("other-sources-panel");
-const otherSourcesList = byId("other-sources");
-const otherSourcesCount = byId("other-source-count");
-const metaLine = byId("meta");
 
 const CATALOG_PREFIX = "https://catalog.utk.edu/";
+const PENDING_TEXT = "Searching the catalog and writing an answer…";
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -32,20 +25,19 @@ function catalogUrl(url) {
   return typeof url === "string" && url.startsWith(CATALOG_PREFIX) ? url : null;
 }
 
-function showStatus(text, isError) {
-  statusLine.textContent = text;
-  statusLine.classList.toggle("error", Boolean(isError));
-  statusLine.hidden = !text;
+function catalogLink(url, className, text) {
+  const link = element("a", className, text);
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  return link;
 }
 
 function citationNode(number, citations) {
   const citation = citations.get(number);
   const url = citation && catalogUrl(citation.url);
   if (!url) return document.createTextNode("[" + number + "]");
-  const link = element("a", "cite", String(citation.shown));
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
+  const link = catalogLink(url, "cite", String(citation.shown));
   link.title = citation.section ? citation.title + " / " + citation.section : citation.title;
   return link;
 }
@@ -76,16 +68,16 @@ function numberForDisplay(citationList) {
   return citationList.map((c, index) => ({ ...c, shown: index + 1 }));
 }
 
-function renderAnswer(text, citationList) {
+function answerNode(text, citationList) {
   const citations = new Map(citationList.map((c) => [c.n, c]));
-  answerBox.replaceChildren();
+  const box = element("div", "answer");
   let list = null;
   for (const rawLine of text.split("\n")) {
     const line = rawLine.trim();
     if (!line) { list = null; continue; }
     const bullet = /^[-*]\s+/.exec(line);
     if (bullet) {
-      if (!list) { list = element("ul"); answerBox.append(list); }
+      if (!list) { list = element("ul"); box.append(list); }
       const item = element("li");
       appendInline(item, line.slice(bullet[0].length), citations);
       list.append(item);
@@ -93,9 +85,10 @@ function renderAnswer(text, citationList) {
       list = null;
       const paragraph = element("p");
       appendInline(paragraph, line, citations);
-      answerBox.append(paragraph);
+      box.append(paragraph);
     }
   }
+  return box;
 }
 
 function sourceItem(source, shownNumber) {
@@ -103,34 +96,64 @@ function sourceItem(source, shownNumber) {
   if (shownNumber) item.value = shownNumber;
   const label = source.section ? source.title + " / " + source.section : source.title;
   const url = catalogUrl(source.url);
-  if (url) {
-    const link = element("a", "", label);
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    item.append(link);
-  } else {
-    item.append(label);
-  }
+  item.append(url ? catalogLink(url, "", label) : label);
   const excerpt = element("details", "excerpt");
   excerpt.append(element("summary", "", "Show excerpt"), element("pre", "", source.text));
   item.append(excerpt);
   return item;
 }
 
+function countedSummary(label, count) {
+  const summary = element("summary", "", label + " ");
+  summary.append(element("span", "count", "(" + count + ")"));
+  return summary;
+}
+
 // Cited sources first, numbered as in the answer; then everything else that
-// was searched and sent to the model, unnumbered.
-function renderSources(sources, citationList) {
+// was searched and sent to the model, unnumbered. Both start collapsed.
+function sourcesNode(sources, citationList) {
   const shown = new Map(citationList.map((c) => [c.n, c.shown]));
   const cited = sources.filter((s) => shown.has(s.n)).sort((a, b) => shown.get(a.n) - shown.get(b.n));
   const others = sources.filter((s) => !shown.has(s.n));
-  sourcesList.replaceChildren(...cited.map((s) => sourceItem(s, shown.get(s.n))));
-  otherSourcesList.replaceChildren(...others.map((s) => sourceItem(s, 0)));
-  otherSourcesPanel.hidden = others.length === 0;
-  otherSourcesPanel.open = false;
-  otherSourcesCount.textContent = "(" + others.length + ")";
-  sourceCount.textContent = "(" + cited.length + " cited)";
-  sourcesPanel.open = false;
+  const panel = element("details", "sources-panel");
+  const citedList = element("ol", "sources");
+  citedList.append(...cited.map((s) => sourceItem(s, shown.get(s.n))));
+  panel.append(countedSummary("Sources", cited.length + " cited"), citedList);
+  if (others.length > 0) {
+    const otherPanel = element("details", "other-sources");
+    const otherList = element("ul");
+    otherList.append(...others.map((s) => sourceItem(s, 0)));
+    otherPanel.append(countedSummary("Other excerpts that were searched", others.length), otherList);
+    panel.append(otherPanel);
+  }
+  return panel;
+}
+
+// One question and its reply. The first one switches the page from the
+// centred start screen to the chat layout. Returns the (still waiting) reply.
+function addTurn(question) {
+  app.classList.remove("is-empty");
+  thread.hidden = false;
+  const turn = element("article", "turn");
+  const reply = element("div", "bot-msg");
+  reply.append(element("p", "pending", PENDING_TEXT));
+  turn.append(element("div", "user-msg", question), reply);
+  thread.append(turn);
+  turn.scrollIntoView({ block: "start", behavior: "smooth" });
+  return reply;
+}
+
+function showReply(reply, data) {
+  const citations = numberForDisplay(data.citations);
+  const parts = [answerNode(data.answer, citations), sourcesNode(data.sources, citations)];
+  if (typeof data.latency_s === "number") {
+    parts.push(element("p", "meta", "Answered in " + data.latency_s.toFixed(1) + " s"));
+  }
+  reply.replaceChildren(...parts);
+}
+
+function showError(reply, message) {
+  reply.replaceChildren(element("p", "error", message));
 }
 
 // The Ask button turns into three spinning dots while a question is being
@@ -148,9 +171,10 @@ async function ask(question) {
   const startedAt = performance.now();
   sendButton.disabled = true;
   setLoading(true);
-  resultBox.hidden = true;
-  showStatus("Searching the catalog and writing an answer…", false);
-  // No "mode" is sent, so the server uses its configured search method.
+  const reply = addTurn(question);
+  questionBox.value = "";
+  // Only the question is sent: the server keeps no memory of earlier turns,
+  // and no "mode", so it uses its configured search method.
   const payload = { question };
   try {
     const response = await fetch("/ask", {
@@ -162,23 +186,18 @@ async function ask(question) {
     try { body = await response.json(); } catch (parseError) { body = null; }
     if (!body || !body.success) {
       const message = body && body.error && body.error.message;
-      showStatus(message || "The server gave an unexpected reply. Please try again.", true);
+      showError(reply, message || "The server gave an unexpected reply. Please try again.");
       return;
     }
-    const data = body.data;
-    const citations = numberForDisplay(data.citations);
-    renderAnswer(data.answer, citations);
-    renderSources(data.sources, citations);
-    metaLine.textContent = typeof data.latency_s === "number" ? "Answered in " + data.latency_s.toFixed(1) + " s" : "";
-    showStatus("", false);
-    resultBox.hidden = false;
+    showReply(reply, body.data);
   } catch (networkError) {
-    showStatus("Could not reach the server. Check your connection and try again.", true);
+    showError(reply, "Could not reach the server. Check your connection and try again.");
   } finally {
     const remaining = MIN_LOADING_MS - (performance.now() - startedAt);
     if (remaining > 0) await new Promise((resolve) => setTimeout(resolve, remaining));
     setLoading(false);
     sendButton.disabled = false;
+    questionBox.focus();
   }
 }
 
