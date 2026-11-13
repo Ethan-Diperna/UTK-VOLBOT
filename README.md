@@ -50,8 +50,6 @@ There are two graders, and they disagree on how strict to be, so both are shown:
 
 Brackets are 95% bootstrap confidence intervals (10,000 resamples). The gap interval is from a paired bootstrap over questions.
 
-> [!IMPORTANT]
-> Quote these as a range, not the human number alone. The human column is lenient for a specific reason described in [Grading](#grading): 77 of the 136 graded responses kept an unreviewed first-pass grade of "correct". The LLM judge is stricter and independent of that problem, but has its own weaknesses. The true figure for each system most likely lies between the two columns.
 
 ### Other measures
 
