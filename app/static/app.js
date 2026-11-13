@@ -7,7 +7,6 @@ const byId = (id) => document.getElementById(id);
 const form = byId("ask-form");
 const questionBox = byId("question");
 const sendButton = byId("send");
-const modeSelect = byId("mode");
 const statusLine = byId("status");
 const resultBox = byId("result");
 const answerBox = byId("answer");
@@ -20,12 +19,6 @@ const otherSourcesCount = byId("other-source-count");
 const metaLine = byId("meta");
 
 const CATALOG_PREFIX = "https://catalog.utk.edu/";
-const MODE_LABELS = {
-  hybrid_rerank: "Hybrid + rerank (default)",
-  hybrid: "Hybrid",
-  vector: "Meaning only (vector)",
-  bm25: "Keywords only (BM25)",
-};
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -144,8 +137,8 @@ async function ask(question) {
   sendButton.disabled = true;
   resultBox.hidden = true;
   showStatus("Searching the catalog and writing an answer…", false);
+  // No "mode" is sent, so the server uses its configured search method.
   const payload = { question };
-  if (modeSelect.value) payload.mode = modeSelect.value;
   try {
     const response = await fetch("/ask", {
       method: "POST",
@@ -193,17 +186,3 @@ for (const chip of document.querySelectorAll(".chip")) {
     form.requestSubmit();
   });
 }
-
-// Fill the search-method dropdown from the server, so the page never lists a
-// mode the server does not have. If this fails the default mode still works.
-fetch("/health")
-  .then((response) => response.json())
-  .then((health) => {
-    for (const mode of health.modes || []) {
-      if (mode === health.default_mode) continue;
-      const option = element("option", "", MODE_LABELS[mode] || mode);
-      option.value = mode;
-      modeSelect.append(option);
-    }
-  })
-  .catch(() => {});

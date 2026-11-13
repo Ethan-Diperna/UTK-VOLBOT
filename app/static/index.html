@@ -3,27 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catalog Assistant (unofficial)</title>
+  <title>UTK Catalog Assistant (unofficial)</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <main>
     <header>
-      <h1>Catalog Assistant</h1>
+      <h1>UTK Catalog Assistant</h1>
     </header>
 
     <form id="ask-form" autocomplete="off">
       <label class="visually-hidden" for="question">Your question</label>
       <textarea id="question" name="question" rows="2" maxlength="500" required
-                placeholder="What are the prerequisites for COSC 360?"></textarea>
+                placeholder="EX: What are the prerequisites for COSC 360?"></textarea>
       <div class="form-row">
-        <details class="options">
-          <summary>Options</summary>
-          <label for="mode">Search method</label>
-          <select id="mode" name="mode">
-            <option value="">Default</option>
-          </select>
-        </details>
         <button id="send" type="submit">Ask</button>
       </div>
     </form>

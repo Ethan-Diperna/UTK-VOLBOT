@@ -155,6 +155,8 @@ def test_home_page_and_its_assets_are_served_with_security_headers():
     assert "<script>" not in page.text                                   # no inline script: CSP stays strict
     assert client.get("/static/app.js").status_code == 200 and client.get("/static/style.css").status_code == 200
     assert page.headers["x-content-type-options"] == "nosniff"
+    assert page.headers["cache-control"] == "no-cache"                   # an edited page is never served stale
+    assert client.get("/static/app.js").headers["cache-control"] == "no-cache"
     assert "default-src 'self'" in page.headers["content-security-policy"]
 
 

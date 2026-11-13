@@ -147,6 +147,9 @@ def create_app(answer_fn: Callable[[str, str], dict] | None = None, limiter: Rat
     async def add_security_headers(request: Request, call_next):
         response = await call_next(request)
         response.headers.update(SECURITY_HEADERS)
+        # "no-cache" = keep a copy but ask the server whether it changed before
+        # using it. Without this, browsers keep showing an old page after an edit.
+        response.headers.setdefault("Cache-Control", "no-cache")
         return response
 
     @app.exception_handler(RequestValidationError)

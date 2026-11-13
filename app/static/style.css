@@ -81,23 +81,10 @@ form:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--acc
 
 .form-row {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-end;
   margin-top: 0.4rem;
 }
 
-.options { color: var(--muted); font: 0.85rem/1.4 system-ui, sans-serif; }
-.options summary { cursor: pointer; padding: 0.45rem 0; }
-.options label { display: block; margin: 0.3rem 0 0.2rem; }
-.options select {
-  font: inherit;
-  padding: 0.25rem 0.4rem;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--paper);
-  color: var(--ink);
-}
 summary::marker { color: var(--accent); }
 
 button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
