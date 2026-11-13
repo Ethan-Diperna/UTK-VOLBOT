@@ -31,9 +31,10 @@ from typing import Callable
 
 import anthropic
 
-from benchmark import lock, metrics
+from benchmark import freeze, lock, metrics
+from benchmark.freeze import FROZEN_PATH
 from benchmark.judge import JudgeError, judge, render_response, rubric_sha256
-from benchmark.questions import BENCH_DIR, DEV_PATH, TEST_PATH, load
+from benchmark.questions import DEV_PATH, TEST_PATH, load
 from src import config as cfg
 from src.chunk import STRATEGIES, load_jsonl
 from src.context import STEPS as CONTEXT_STEPS
@@ -42,7 +43,6 @@ from src.generate import SYSTEM_PROMPT, GenerationError, generate
 from src.index import build_indexes
 from src.retrieve import MODES, Retriever
 
-FROZEN_PATH = BENCH_DIR / "frozen_config.json"
 WARMUP_QUERY = "warm up the models"   # run once per mode so model loading is not timed
 MS_PER_S = 1000
 # What _answer_one produces for one question; these fields are what --reuse carries over.
@@ -97,6 +97,10 @@ def check_split_allowed(split: str, verify: Callable[[], bool] = lock.verify,
     if not frozen_path.exists():
         raise SystemExit(f"{frozen_path.name} not found: the config is not frozen yet. "
                          "The test set is run once, after tuning on dev is finished.")
+    changed = freeze.changed_keys(frozen_path)
+    if changed:
+        raise SystemExit(f"config differs from {frozen_path.name} in: {', '.join(changed)}. "
+                         "The test set must be run with the frozen config.")
 
 
 def retrieve_all(questions: list[dict], retriever, modes: tuple[str, ...], k: int,
@@ -316,6 +320,10 @@ def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     check_split_allowed(a.split)
+    if a.split == "test":
+        # The test set is only ever run on the one frozen setup, whatever flags were passed.
+        a.modes, a.chunking, a.k = [cfg.RETRIEVAL_MODE], [default_chunking()], cfg.TOP_K
+        a.context, a.limit = list(cfg.CONTEXT_STEPS), None
 
     questions_path = DEV_PATH if a.split == "dev" else TEST_PATH
     questions = load(questions_path)[:a.limit]
