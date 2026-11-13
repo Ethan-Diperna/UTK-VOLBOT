@@ -89,16 +89,92 @@ summary::marker { color: var(--accent); }
 
 button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
 
+/* The Ask button. Its orange block is a separate layer (::before) so it can
+   shrink away while the button itself keeps its place in the layout.
+
+   Sending a question adds the class "is-loading":
+     going   the block swells a little, then collapses to nothing in one
+             motion (an ease curve that first moves backwards), the label
+             fades, and three orange dots appear and spin.
+     return  removing the class plays it backwards: the dots shrink away and
+             the block pops back slightly past full size, then settles.
+   A CSS transition uses the timing of the state it is moving TO, which is why
+   the "going" curve sits on .is-loading and the "return" curve on the base. */
 #send {
+  position: relative;
+  isolation: isolate;
   border: 0;
   border-radius: 9px;
   padding: 0.65rem 1.25rem;
-  background: var(--accent);
+  background: transparent;
   color: var(--accent-ink);
 }
 
+#send::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 9px;
+  background: var(--accent);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), border-radius 0.5s;
+}
+
+#send .label { display: inline-block; transition: opacity 0.2s 0.25s; }
+
+#send .dots {
+  position: absolute;
+  inset: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: auto;
+  opacity: 0;
+  scale: 0.2;
+  transition: opacity 0.15s, scale 0.2s;
+  animation: dots-spin 0.9s linear infinite paused;
+}
+
+#send .dots i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.38rem;
+  height: 0.38rem;
+  margin: -0.19rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+#send .dots i:nth-child(1) { transform: rotate(0deg) translateY(-0.56rem); }
+#send .dots i:nth-child(2) { transform: rotate(120deg) translateY(-0.56rem); }
+#send .dots i:nth-child(3) { transform: rotate(240deg) translateY(-0.56rem); }
+
+#send.is-loading::before {
+  transform: scale(0);
+  border-radius: 50%;
+  transition: transform 0.5s cubic-bezier(0.6, -0.55, 0.74, 0.05), border-radius 0.5s;
+}
+
+#send.is-loading .label { opacity: 0; transition: opacity 0.15s; }
+
+#send.is-loading .dots {
+  opacity: 1;
+  scale: 1;
+  transition: opacity 0.2s 0.3s, scale 0.3s 0.3s;
+  animation-play-state: running;
+}
+
+@keyframes dots-spin { to { rotate: 360deg; } }
+
 #send:hover { filter: brightness(1.08); }
-#send:disabled { opacity: 0.55; cursor: wait; }
+#send:disabled { cursor: wait; }
+
+/* People who ask their system for less motion get a plain swap, no movement. */
+@media (prefers-reduced-motion: reduce) {
+  #send::before, #send .label, #send .dots, #send.is-loading::before,
+  #send.is-loading .label, #send.is-loading .dots { transition: none; }
+  #send .dots { animation-duration: 3s; }
+}
 #send:focus-visible, .chip:focus-visible, a:focus-visible, summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;

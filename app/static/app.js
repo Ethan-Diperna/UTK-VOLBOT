@@ -133,8 +133,21 @@ function renderSources(sources, citationList) {
   sourcesPanel.open = false;
 }
 
+// The Ask button turns into three spinning dots while a question is being
+// answered. The look is all CSS (see #send in style.css); this only flips the
+// class. A reply that comes back almost at once (a rejected question, say)
+// would make the button flicker, so the dots always stay for a short minimum.
+const MIN_LOADING_MS = 700;
+
+function setLoading(isLoading) {
+  sendButton.classList.toggle("is-loading", isLoading);
+  sendButton.setAttribute("aria-busy", String(isLoading));
+}
+
 async function ask(question) {
+  const startedAt = performance.now();
   sendButton.disabled = true;
+  setLoading(true);
   resultBox.hidden = true;
   showStatus("Searching the catalog and writing an answer…", false);
   // No "mode" is sent, so the server uses its configured search method.
@@ -162,6 +175,9 @@ async function ask(question) {
   } catch (networkError) {
     showStatus("Could not reach the server. Check your connection and try again.", true);
   } finally {
+    const remaining = MIN_LOADING_MS - (performance.now() - startedAt);
+    if (remaining > 0) await new Promise((resolve) => setTimeout(resolve, remaining));
+    setLoading(false);
     sendButton.disabled = false;
   }
 }
