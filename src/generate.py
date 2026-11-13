@@ -23,6 +23,7 @@ import time
 import anthropic
 
 from src import config as cfg
+from src.context import build_context
 
 SYSTEM_PROMPT = f"""You answer questions from University of Tennessee, Knoxville students about courses, prerequisites, and degree requirements. Your only source is the numbered excerpts from the {cfg.CATALOG_NAME} that come with each question.
 
@@ -47,12 +48,14 @@ NO_CONTEXT_ANSWER = ("The catalog search returned nothing for this question, so 
 # "[1]", "[2][3]" and "[1, 2]" are all accepted as citations.
 CITATION_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
 REQUEST_TIMEOUT_S = 120.0
+# Text of the API's 400 when the account has no credits (seen live 2026-11-12).
+OUT_OF_CREDITS_MARKER = "credit balance is too low"
 
 
 class GenerationError(Exception):
     """A failed generation, with a message safe to show a user.
 
-    `kind` is one of auth, rate_limit, bad_request, server, network, refusal.
+    `kind` is one of auth, billing, rate_limit, bad_request, server, network, refusal.
     `retryable` says whether trying again later can help. The original SDK
     exception is kept as __cause__ for logs."""
 
@@ -117,6 +120,9 @@ def _call_claude(client, model: str, user_message: str):
         raise GenerationError("rate_limit", "The answer service is rate limited right now. "
                               "Try again in a minute.", retryable=True) from e
     except (anthropic.NotFoundError, anthropic.BadRequestError) as e:
+        if OUT_OF_CREDITS_MARKER in str(e).lower():   # the API reports this as a plain 400
+            raise GenerationError("billing", "The Anthropic account is out of credits. Add credits "
+                                  "in the Anthropic Console, then try again.") from e
         raise GenerationError("bad_request", "The request to the answer service was rejected. "
                               f"Check the model name in config ({model}).") from e
     except anthropic.APIStatusError as e:
@@ -165,8 +171,10 @@ def generate(question: str, chunks: list[dict], client=None, model: str = cfg.GE
 
 def answer_question(question: str, retriever, mode: str = cfg.RETRIEVAL_MODE, k: int = cfg.TOP_K,
                     client=None) -> dict:
-    """Full pipeline: retrieve, then generate. `retriever` is a src.retrieve.Retriever."""
-    chunks = retriever.search(question, mode=mode, k=k)
+    """Full pipeline: retrieve, build the context, generate. `retriever` is a
+    src.retrieve.Retriever."""
+    hits = retriever.search(question, mode=mode, k=k)
+    chunks = build_context(question, hits, retriever.chunks)
     return {**generate(question, chunks, client=client), "mode": mode}
 
 

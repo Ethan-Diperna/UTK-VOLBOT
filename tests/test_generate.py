@@ -17,6 +17,10 @@ CHUNKS = [
 ]
 
 
+# Fields the context builder reads; "course:1" -> doc_type "course", "program:9#03" -> doc "program:9".
+CHUNKS = [{**c, "doc_id": c["id"].split("#")[0], "doc_type": c["id"].split(":")[0], "code": ""} for c in CHUNKS]
+
+
 def message(text="COSC 360 is 4 credit hours [1].", stop_reason="end_turn", model="claude-opus-5-5"):
     return SimpleNamespace(
         content=[SimpleNamespace(type="thinking", thinking=""), SimpleNamespace(type="text", text=text)],
@@ -141,6 +145,16 @@ def test_api_errors_become_generation_errors_with_kind_and_plain_message(error, 
     assert e.value.__cause__ is error
 
 
+def test_out_of_credits_is_reported_as_billing_not_as_a_bad_model_name():
+    request = httpx2.Request("POST", "https://api.anthropic.com/v1/messages")
+    error = anthropic.BadRequestError("Your credit balance is too low to access the Anthropic API.",
+                                      response=httpx2.Response(400, request=request), body=None)
+    with pytest.raises(generate.GenerationError) as e:
+        generate.generate("q", CHUNKS, client=FakeClient(error=error))
+    assert e.value.kind == "billing" and "credits" in str(e.value)
+    assert "model name" not in str(e.value)
+
+
 def test_missing_api_key_is_a_clean_auth_error_before_any_request(monkeypatch):
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
@@ -153,6 +167,8 @@ def test_missing_api_key_is_a_clean_auth_error_before_any_request(monkeypatch):
 
 def test_answer_question_retrieves_then_generates():
     class FakeRetriever:
+        chunks = {c["id"]: c for c in CHUNKS}
+
         def search(self, query, mode, k):
             self.seen = (query, mode, k)
             return CHUNKS[:2]

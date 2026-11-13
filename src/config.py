@@ -81,6 +81,15 @@ RETRIEVAL_CANDIDATES = 20          # depth of each search before fusion / rerank
 # larger value flattens the difference between rank 1 and rank 10.
 RRF_K = 60
 
+# ---- Context building (Phase 6), see src/context.py. Chosen on the dev set. ----
+# Steps applied to the search hits before they go to the model. Empty = send
+# the top-k hits as they are. Options: named_courses, program_pages, prerequisites.
+# All three on since 2026-11-12: dev accuracy 0.70 -> 0.84 (see benchmark/TUNING_LOG.md).
+CONTEXT_STEPS: tuple[str, ...] = ("named_courses", "program_pages", "prerequisites")
+CONTEXT_MAX_PROGRAM_PAGES = 2    # whole program pages sent per question (largest is ~2,300 words)
+CONTEXT_PREREQ_MAX_HOPS = 4      # how far a prerequisite chain is followed
+CONTEXT_PREREQ_MAX_CHUNKS = 8    # cap on courses added by following prerequisites
+
 # ---- Models (names are config, not hardcoded in logic) ----
 # Model ids verified against the claude-api skill reference on 2026-10-30.
 # Generation uses the current Opus; the LLM judge uses the cheaper current
@@ -96,6 +105,18 @@ GENERATION_MAX_TOKENS = 16000   # ceiling, not a target; answers are a few sente
 # model instead of failing. The model that actually answered is recorded on
 # every result. Set to "" to turn this off.
 GENERATION_FALLBACK_BETA = "server-side-fallback-2026-07-01"
+# ---- Evaluation (Phase 6) ----
+# US dollars per million tokens as (input, output), from the claude-api
+# reference on 2026-11-12. Used only to estimate cost per query; a model that
+# is not listed gets no cost estimate instead of a made-up one.
+MODEL_PRICES_PER_MTOK = {
+    "claude-opus-5-5": (4.0, 20.0),
+    "claude-sonnet-5-5": (2.0, 10.0),
+}
+JUDGE_MAX_TOKENS = 4000      # a grade is a few lines of JSON plus hidden thinking
+EVAL_WORKERS = 4             # parallel answer+judge calls during an eval run
+EVAL_INDEX_DIR = DATA_DIR / "eval_indexes"       # indexes for non-default chunking (gitignored)
+RESULTS_DIR = ROOT / "benchmark" / "results"     # one folder per eval run
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 # The bge-small-en-v1.5 model card (read 2026-11-12) says to prepend this
 # instruction to short queries, and nothing to passages.

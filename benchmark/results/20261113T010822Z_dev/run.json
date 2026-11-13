@@ -1,0 +1,292 @@
+{
+  "config": {
+    "started_at": "2026-11-13T01:08:22+00:00",
+    "split": "dev",
+    "n_questions": 44,
+    "limit": null,
+    "questions_sha256": "b69df6a7bc45d8d8029c776d39852eb0981227746131aab5cfee38cf71e70752",
+    "modes": [
+      "vector",
+      "bm25",
+      "hybrid",
+      "hybrid_rerank"
+    ],
+    "chunking": {
+      "section:250": {
+        "built_at": "2026-11-12T20:29:56+00:00",
+        "strategy": "section",
+        "max_words": 250,
+        "n_chunks": 352,
+        "embedding_model": "BAAI/bge-small-en-v1.5",
+        "catalog_year": "2026-2027"
+      }
+    },
+    "top_k": 5,
+    "retrieval_candidates": 20,
+    "rrf_k": 60,
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "answers": true,
+    "generation_model": "claude-opus-5-5",
+    "generation_effort": "medium",
+    "judge_model": "claude-sonnet-5-5",
+    "system_prompt_sha256": "4fbc9e6f0a9189f351fe9bdf38a9fe71fa89561f4c151641957d692d2efe59b5",
+    "rubric_sha256": "078f4e8b7a1a0be485f623fa3259749e45b27fc96b0289f50ab3e6cc31eb6130",
+    "git": {
+      "commit": "96db2afa3f69e8eb2fa68f0c83a35be4bf652b25",
+      "dirty": true
+    }
+  },
+  "retrieval": {
+    "section:250": {
+      "vector": {
+        "n": 38,
+        "hit@1": 0.6578947368421053,
+        "hit@3": 0.7894736842105263,
+        "hit@5": 0.9210526315789473,
+        "mrr": 0.7434210526315789,
+        "source_recall": 0.7785087719298245,
+        "median_ms": 10.5
+      },
+      "bm25": {
+        "n": 38,
+        "hit@1": 0.47368421052631576,
+        "hit@3": 0.7105263157894737,
+        "hit@5": 0.7631578947368421,
+        "mrr": 0.582017543859649,
+        "source_recall": 0.6271929824561403,
+        "median_ms": 0.4
+      },
+      "hybrid": {
+        "n": 38,
+        "hit@1": 0.631578947368421,
+        "hit@3": 0.7631578947368421,
+        "hit@5": 0.868421052631579,
+        "mrr": 0.7092105263157894,
+        "source_recall": 0.7653508771929824,
+        "median_ms": 11.75
+      },
+      "hybrid_rerank": {
+        "n": 38,
+        "hit@1": 0.7105263157894737,
+        "hit@3": 0.8947368421052632,
+        "hit@5": 0.9473684210526315,
+        "mrr": 0.8070175438596491,
+        "source_recall": 0.8530701754385964,
+        "median_ms": 221.9
+      }
+    }
+  },
+  "answers": {
+    "section:250": {
+      "vector": {
+        "n": 44,
+        "accuracy": 0.6363636363636364,
+        "partial_accuracy": 0.7386363636363636,
+        "hallucination_rate": 0.0,
+        "refusal_precision": 0.46153846153846156,
+        "citation_rate": 1.0,
+        "citation_accuracy": 1.0,
+        "counts": {
+          "correct": 22,
+          "partially_correct": 9,
+          "incorrect": 0,
+          "correct_refusal": 6,
+          "wrong_refusal": 7,
+          "hallucinated": 0
+        },
+        "ungraded": 0,
+        "failure_groups": {
+          "bad_refusal": 7,
+          "wrong_despite_retrieval": 9
+        },
+        "by_category": {
+          "comparison": {
+            "n": 4,
+            "accuracy": 0.0
+          },
+          "multi_hop": {
+            "n": 5,
+            "accuracy": 0.6
+          },
+          "prerequisite": {
+            "n": 9,
+            "accuracy": 0.7777777777777778
+          },
+          "program": {
+            "n": 10,
+            "accuracy": 0.4
+          },
+          "single_course": {
+            "n": 10,
+            "accuracy": 0.8
+          },
+          "unanswerable": {
+            "n": 6,
+            "accuracy": 1.0
+          }
+        },
+        "mean_generation_s": 4.068022727272727,
+        "mean_generation_cost_usd": 0.01523509090909091,
+        "mean_judge_cost_usd": 0.010382136363636364
+      },
+      "bm25": {
+        "n": 44,
+        "accuracy": 0.4772727272727273,
+        "partial_accuracy": 0.5909090909090909,
+        "hallucination_rate": 0.0,
+        "refusal_precision": 0.3157894736842105,
+        "citation_rate": 1.0,
+        "citation_accuracy": 1.0,
+        "counts": {
+          "correct": 15,
+          "partially_correct": 10,
+          "incorrect": 0,
+          "correct_refusal": 6,
+          "wrong_refusal": 13,
+          "hallucinated": 0
+        },
+        "ungraded": 0,
+        "failure_groups": {
+          "bad_refusal": 13,
+          "wrong_despite_retrieval": 10
+        },
+        "by_category": {
+          "comparison": {
+            "n": 4,
+            "accuracy": 0.25
+          },
+          "multi_hop": {
+            "n": 5,
+            "accuracy": 0.2
+          },
+          "prerequisite": {
+            "n": 9,
+            "accuracy": 0.4444444444444444
+          },
+          "program": {
+            "n": 10,
+            "accuracy": 0.1
+          },
+          "single_course": {
+            "n": 10,
+            "accuracy": 0.8
+          },
+          "unanswerable": {
+            "n": 6,
+            "accuracy": 1.0
+          }
+        },
+        "mean_generation_s": 4.136068181818182,
+        "mean_generation_cost_usd": 0.015034454545454545,
+        "mean_judge_cost_usd": 0.010354681818181818
+      },
+      "hybrid": {
+        "n": 44,
+        "accuracy": 0.5909090909090909,
+        "partial_accuracy": 0.7045454545454546,
+        "hallucination_rate": 0.022727272727272728,
+        "refusal_precision": 0.46153846153846156,
+        "citation_rate": 1.0,
+        "citation_accuracy": 1.0,
+        "counts": {
+          "correct": 20,
+          "partially_correct": 10,
+          "incorrect": 0,
+          "correct_refusal": 6,
+          "wrong_refusal": 7,
+          "hallucinated": 1
+        },
+        "ungraded": 0,
+        "failure_groups": {
+          "bad_refusal": 7,
+          "wrong_despite_retrieval": 9,
+          "retrieval_miss": 1,
+          "hallucination": 1
+        },
+        "by_category": {
+          "comparison": {
+            "n": 4,
+            "accuracy": 0.0
+          },
+          "multi_hop": {
+            "n": 5,
+            "accuracy": 0.4
+          },
+          "prerequisite": {
+            "n": 9,
+            "accuracy": 0.7777777777777778
+          },
+          "program": {
+            "n": 10,
+            "accuracy": 0.2
+          },
+          "single_course": {
+            "n": 10,
+            "accuracy": 0.9
+          },
+          "unanswerable": {
+            "n": 6,
+            "accuracy": 1.0
+          }
+        },
+        "mean_generation_s": 3.961727272727273,
+        "mean_generation_cost_usd": 0.014873545454545455,
+        "mean_judge_cost_usd": 0.010408
+      },
+      "hybrid_rerank": {
+        "n": 44,
+        "accuracy": 0.7045454545454546,
+        "partial_accuracy": 0.7840909090909091,
+        "hallucination_rate": 0.0,
+        "refusal_precision": 0.6,
+        "citation_rate": 1.0,
+        "citation_accuracy": 0.9705882352941176,
+        "counts": {
+          "correct": 25,
+          "partially_correct": 7,
+          "incorrect": 2,
+          "correct_refusal": 6,
+          "wrong_refusal": 4,
+          "hallucinated": 0
+        },
+        "ungraded": 0,
+        "failure_groups": {
+          "wrong_despite_retrieval": 8,
+          "bad_refusal": 4,
+          "retrieval_miss": 1
+        },
+        "by_category": {
+          "comparison": {
+            "n": 4,
+            "accuracy": 0.5
+          },
+          "multi_hop": {
+            "n": 5,
+            "accuracy": 0.6
+          },
+          "prerequisite": {
+            "n": 9,
+            "accuracy": 0.7777777777777778
+          },
+          "program": {
+            "n": 10,
+            "accuracy": 0.4
+          },
+          "single_course": {
+            "n": 10,
+            "accuracy": 0.9
+          },
+          "unanswerable": {
+            "n": 6,
+            "accuracy": 1.0
+          }
+        },
+        "mean_generation_s": 3.817431818181818,
+        "mean_generation_cost_usd": 0.015157545454545453,
+        "mean_judge_cost_usd": 0.010506272727272727
+      }
+    }
+  },
+  "api_spend_usd": 2.7626
+}

@@ -65,10 +65,11 @@ class Retriever:
         self.rerank = rerank
 
     @classmethod
-    def from_disk(cls) -> "Retriever":
-        chunks = {c["id"]: c for c in load_jsonl(cfg.CHUNKS_PATH)}
-        bm25 = Bm25Index.load(cfg.BM25_PATH)
-        collection = open_collection()
+    def from_disk(cls, chunks_path=cfg.CHUNKS_PATH, bm25_path=cfg.BM25_PATH,
+                  chroma_dir=cfg.CHROMA_DIR) -> "Retriever":
+        chunks = {c["id"]: c for c in load_jsonl(chunks_path)}
+        bm25 = Bm25Index.load(bm25_path)
+        collection = open_collection(chroma_dir)
         if set(bm25.ids) != set(chunks) or collection.count() != len(chunks):
             raise RuntimeError("indexes do not match chunks.jsonl; run `python -m src.index`")
 

@@ -140,30 +140,40 @@ def open_collection(chroma_dir: Path = cfg.CHROMA_DIR, collection_name: str = cf
         collection_name, embedding_function=None)
 
 
+def build_indexes(strategy: str = cfg.CHUNK_STRATEGY, max_words: int = cfg.CHUNK_MAX_WORDS,
+                  chunks_path: Path = cfg.CHUNKS_PATH, bm25_path: Path = cfg.BM25_PATH,
+                  chroma_dir: Path = cfg.CHROMA_DIR) -> dict:
+    """Chunk the docs and build both indexes at the given paths. Returns the
+    build metadata, including the longest chunk in model tokens and the ids of
+    chunks over the embedding model's limit. The paths are arguments so the
+    Phase 6 ablation can build other chunking setups beside the default one."""
+    chunks = chunk_docs(load_jsonl(cfg.DOCS_PATH), strategy=strategy, max_words=max_words)
+    save_jsonl(chunks_path, chunks)
+    print(f"chunks: {len(chunks)} ({stats(chunks)})")
+    model = load_embedder()
+    texts = [c["text"] for c in chunks]
+    lengths = token_lengths(model, texts)
+    over = [c["id"] for c, n in zip(chunks, lengths) if n > model.max_seq_length]
+    meta = {"built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "strategy": strategy, "max_words": max_words, "n_chunks": len(chunks),
+            "embedding_model": cfg.EMBEDDING_MODEL, "catalog_year": cfg.CATALOG_YEAR,
+            "max_chunk_tokens": max(lengths), "n_over_token_limit": len(over)}
+
+    Bm25Index.build(chunks).save(bm25_path, meta=meta)
+    print(f"bm25: {len(chunks)} chunks -> {bm25_path}")
+    print(f"embedding with {cfg.EMBEDDING_MODEL}: longest chunk {max(lengths)} tokens, "
+          f"limit {model.max_seq_length}, over limit: {over or 'none'}")
+    collection = build_chroma(chunks, embed_texts(model, texts), chroma_dir, meta)
+    print(f"chroma: {collection.count()} vectors -> {chroma_dir}")
+    return meta
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--strategy", choices=STRATEGIES, default=cfg.CHUNK_STRATEGY)
     ap.add_argument("--max-words", type=int, default=cfg.CHUNK_MAX_WORDS)
     a = ap.parse_args()
-
-    chunks = chunk_docs(load_jsonl(cfg.DOCS_PATH), strategy=a.strategy, max_words=a.max_words)
-    save_jsonl(cfg.CHUNKS_PATH, chunks)
-    print(f"chunks: {len(chunks)} ({stats(chunks)})")
-    meta = {"built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            "strategy": a.strategy, "max_words": a.max_words, "n_chunks": len(chunks),
-            "embedding_model": cfg.EMBEDDING_MODEL, "catalog_year": cfg.CATALOG_YEAR}
-
-    Bm25Index.build(chunks).save(cfg.BM25_PATH, meta=meta)
-    print(f"bm25: {len(chunks)} chunks -> {cfg.BM25_PATH}")
-
-    model = load_embedder()
-    texts = [c["text"] for c in chunks]
-    lengths = token_lengths(model, texts)
-    over = [c["id"] for c, n in zip(chunks, lengths) if n > model.max_seq_length]
-    print(f"embedding with {cfg.EMBEDDING_MODEL}: longest chunk {max(lengths)} tokens, "
-          f"limit {model.max_seq_length}, over limit: {over or 'none'}")
-    collection = build_chroma(chunks, embed_texts(model, texts), cfg.CHROMA_DIR, meta)
-    print(f"chroma: {collection.count()} vectors -> {cfg.CHROMA_DIR}")
+    build_indexes(a.strategy, a.max_words)
 
 
 if __name__ == "__main__":
