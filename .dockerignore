@@ -1,0 +1,24 @@
+# Kept out of the container image.
+
+# Secrets: the API key is passed at run time, never copied in.
+.env
+.env.*
+!.env.example
+
+# Rebuilt inside the image by `python -m src.index`.
+data/chroma/
+data/bm25_tokens.json
+data/eval_indexes/
+data/raw/
+
+# Not needed to serve the app.
+.git/
+.pytest_cache/
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+tests/
+benchmark/baseline_responses/
+benchmark/results/
+benchmark/grading/

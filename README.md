@@ -373,13 +373,25 @@ The saved runs are under `benchmark/results/`: ten dev runs, the single test run
 
 ## Deploying a public demo
 
-Not done yet; these are notes, not tested instructions.
+Not deployed yet. The repository has a `Dockerfile` that any host able to build a Docker image can use. It installs the CPU build of PyTorch, builds the search indexes, downloads both search models into the image, and starts the app on the port the host gives it (`PORT`, default 7860).
 
-- The app loads an embedding model and a reranker, so it needs more memory than the smallest free hosting tiers usually give. A Docker-based Hugging Face Space is a reasonable free option to try; check its current limits first.
-- Set `ANTHROPIC_API_KEY` as a host secret, never in the repository.
+```bash
+docker build -t catalog-assistant .
+```
+
+```bash
+docker run -p 7860:7860 -e ANTHROPIC_API_KEY=your-key catalog-assistant
+```
+
+What has and has not been checked (2026-11-13): the image's start command, its handling of the visitor address behind a proxy, and loading the models with no network were each tested outside Docker. The image itself has not been built, because Docker was not available on the development machine. Expect to fix small things on the first real build.
+
+Choosing a host:
+
+- **Memory.** The running app measured about 820 MB with both search models loaded. Hosts that give 512 MB are too small, which rules out Render's free plan (512 MB, per its documentation on 2026-11-13). Pick a plan with 1 GB or more.
+- **Hugging Face Spaces** gives 16 GB on its basic CPU hardware, but its documentation (read 2026-11-13) says creating a Docker Space requires a paid plan. The `Dockerfile` follows its rules (user id 1000, port 7860). A Space also needs a short settings block at the top of its own README with `sdk: docker`.
+- Set `ANTHROPIC_API_KEY` as a host secret, never in the repository or the image.
 - Lower `API_DAILY_REQUEST_CAP`. At about 4 cents per answer, the default of 200 a day allows up to about $8 a day.
-- Behind a reverse proxy, every visitor appears to come from the proxy's address, so the per-client limit would treat all visitors as one. Run uvicorn with `--proxy-headers` and a correct `--forwarded-allow-ips` for the host.
-- The search indexes are not in git. Build them in the image with `python -m src.index`.
+- Behind a host's proxy, every visitor appears to come from the proxy's address. The image starts uvicorn with `--proxy-headers` so the per-client limit sees the real address. A visitor can fake that header to dodge the per-client limit, so the daily cap is the real protection for the API bill.
 
 ## Project layout
 
@@ -411,6 +423,7 @@ benchmark/
   grading/          blind sheet, key, human and judge grades
   results/          saved runs
 tests/              230 tests, model calls faked
+Dockerfile          container image for hosting the app
 data/processed/     cleaned catalog text and chunks
 ```
 
