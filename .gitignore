@@ -12,3 +12,4 @@ benchmark/baseline_responses/*.json
 benchmark/baseline_responses/*.bak
 data/bm25_tokens.json
 data/eval_indexes/
+benchmark/grading/blind_key.json

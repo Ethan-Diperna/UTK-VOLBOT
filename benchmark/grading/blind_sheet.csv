@@ -1,0 +1,658 @@
+item,id,question,expected_answer,source_urls,response_label,response_text
+cd001-A,cd001,How many credit hours is COSC 360?,4,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367195,A,"COSC 360 (Systems Programming) is 4 credit hours, split as 3 hours lecture and 1 lab. The honors version, COSC 367, is also 4 credit hours."
+cd001-B,cd001,How many credit hours is COSC 360?,4,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367195,B,"At the University of Tennessee, Knoxville, COSC 360 (Systems Programming) is 4 credit hours."
+cd002-A,cd002,What is the title of MATH 251?,Linear Algebra I,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367975,A,The 2026–2027 UTK catalog lists MATH 251 as Linear Algebra I. Some older UTK materials call it Matrix Algebra I.
+cd002-B,cd002,What is the title of MATH 251?,Linear Algebra I,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367975,B,MATH 251 is titled Linear Algebra I. It is a 3-credit-hour course.
+cd003-A,cd003,How many credit hours is MATH 200 Matrix Computations?,2,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367971,A,"MATH 200 (Matrix Computations) is 2 credit hours.
+
+If you're planning to take it, keep in mind:
+
+- Prerequisite: MATH 142 or MATH 148.
+- Credit restriction: if you've already received a grade of C or better in MATH 251, you can't receive credit for MATH 200 afterward.
+- Intended audience: students in the Tickle College of Engineering and statistics majors in the Haslam College of Business."
+cd003-B,cd003,How many credit hours is MATH 200 Matrix Computations?,2,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367971,B,"MATH 200, Matrix Computations, is 2 credit hours at the University of Tennessee, Knoxville."
+cd004-A,cd004,Can COSC 100 be applied toward the computer science major?,No. Credit Restriction: May not be applied toward the computer science major.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367189,A,"Probably not as a required computer science major course. The UT catalog entry available for COSC 100 describes it as Introduction to Computers and Computing and says it satisfies the Quantitative Reasoning general-education requirement. That entry is from the 2015–2016 catalog, so it doesn't confirm how the course applies under your current catalog year.
+
+The current CS major catalog page is available, but its requirements weren't readable in the fetched page, so I can't confirm whether COSC 100 counts toward a specific major requirement or elective slot. Tickle College of Engineering advises students to check the requirements for their degree, and a UTK discussion also suggests COSC 100 may be introductory rather than a required CS course, though that discussion isn't official guidance.
+
+For a definite answer, check your catalog-year degree requirements or Degree Audit, or ask your CS academic advisor. Be sure to distinguish ""counts toward the degree"" as general education credit from ""counts toward the CS major."""
+cd004-B,cd004,Can COSC 100 be applied toward the computer science major?,No. Credit Restriction: May not be applied toward the computer science major.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367189,B,"No. COSC 100 (Introduction to Computers and Computing, 3 credit hours) carries a credit restriction: it ""May not be applied toward the computer science major"".
+
+It does satisfy the Volunteer Core Quantitative Reasoning (QR) requirement. The excerpts don't say whether it can count toward any non-major requirement within the BS in Computer Science, so check that with your advisor."
+cd005-A,cd005,Which Volunteer Core requirement does COSC 395 satisfy?,(WC) Written Communication,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370071,A,"COSC 395 (Junior Seminar, 1 credit hour) satisfies the Volunteer Core Requirement (WC).
+
+Its prerequisites are COSC 302 or COSC 307 with a grade of C or better, and one of ENGL 102, ENGL 112, ENGL 132, or ENGL 298."
+cd005-B,cd005,Which Volunteer Core requirement does COSC 395 satisfy?,(WC) Written Communication,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370071,B,"COSC 395 satisfies the Written Communication (WC) requirement in UT's Volunteer Core. For Computer Science majors, it's listed as an approved WC course, and the course catalog also marks COSC 395 as WC.
+
+WC is the writing-intensive requirement taken after First-Year Composition."
+cd007-A,cd007,How many credit hours is COSC 493 and how many times can it be repeated?,"1-3 credit hours; may be repeated, maximum 6 hours.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367203,A,"COSC 493 (Independent Study) is 1-3 credit hours, and it may be repeated up to a maximum of 6 hours. The catalog caps it by total hours rather than by number of times taken, so how many times you can take it depends on how many hours each enrollment is.
+
+The 6-hour limit toward the major is shared between COSC 493 and COSC 495 (Undergraduate Research), so hours from both courses count against the same cap. COSC 493 also requires consent of the instructor to register."
+cd007-B,cd007,How many credit hours is COSC 493 and how many times can it be repeated?,"1-3 credit hours; may be repeated, maximum 6 hours.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367203,B,"COSC 493 is 1–3 credit hours per enrollment. UT's catalog search result lists that range.
+
+For repeats, the available catalog entry says ""May be repeated. Maximum 45 hours,"" with no fixed number of attempts stated. That entry is from the 2009–2010 catalog, so I can't confirm from the available current catalog information that the 45-hour cap still applies. It also says no more than 6 hours may count toward the major. COSC 493 is listed as an option for upper-division electives in a separate program catalog, but that listing doesn't clarify the current repeat limit.
+
+For the rule that applies to your catalog year, check with UT's Computer Science department or your academic advisor."
+cd008-A,cd008,What is the grading restriction on MATH 119?,Satisfactory/No Credit grading only.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367960,A,"MATH 119 (College Algebra) is graded Satisfactory/No Credit only.
+
+There is also a separate credit restriction. Students who earn a C or better in any course numbered 123 or higher (except MATH 202) cannot afterward receive credit for MATH 119."
+cd008-B,cd008,What is the grading restriction on MATH 119?,Satisfactory/No Credit grading only.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367960,B,"The 2025–2026 UTK Catalog lists MATH 119 as Satisfactory/No Credit grading only. The same restriction appears in the 2020–2021 catalog. An older 2018–2019 catalog listed a different grading option, so check the catalog for your enrollment year if you're using an older requirement."
+cd010-A,cd010,Which Volunteer Core requirements does AI 101 satisfy?,(EI) (QR),https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370844,A,"AI 101 (Introduction to the World of AI, 3 credit hours) satisfies two Volunteer Core requirements: (EI) and (QR). Other excerpts identify EI as Engaged Inquiries. None of the excerpts spells out what QR stands for.
+
+AI 111 is a nearly identical course for Applied Artificial Intelligence majors, but its catalog entry doesn't list any Volunteer Core designation. You can't receive credit for both AI 101 and AI 111."
+cd010-B,cd010,Which Volunteer Core requirements does AI 101 satisfy?,(EI) (QR),https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370844,B,"AI 101, Introduction to the World of AI, satisfies two Volunteer Core requirements: Ethical Inquiry (EI) and Quantitative Reasoning (QR). It is a 3-credit course. The UTK catalog's Volunteer Core listing includes AI 101, and the course description identifies both requirement codes; a separate course listing also confirms them."
+cd012-A,cd012,Does COSC 322 count toward the computer science major?,No. Credit Restriction: May not be applied toward the computer science or computer engineering majors.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370444,A,"No. COSC 322 (Tools for Applied Machine Learning) cannot be applied toward the computer science or computer engineering majors. The major's elective rules also say it does not count as an acceptable upper-division elective.
+
+If you want machine learning within the major, COSC 325 (Introduction to Machine Learning, 3 credit hours) is one of the options in the Term 5 ""select one course"" group, alongside COSC 361 and COSC 362. Any 3XX or 4XX COSC or ECE course not already used for degree requirements can also count as an upper-division elective, except COSC 322."
+cd012-B,cd012,Does COSC 322 count toward the computer science major?,No. Credit Restriction: May not be applied toward the computer science or computer engineering majors.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370444,B,"No. UTK's 2026–2027 catalog says COSC 322: Tools for Applied Machine Learning may not be applied toward the computer science major, and the major requirements list it as not an acceptable elective."
+cd013-A,cd013,Can ECE 491 Special Topics be repeated for credit?,No. May not be repeated for credit. Course may not be repeated to satisfy senior requirements for graduation.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367236,A,"No, ECE 491 Special Topics (1-3 credit hours) may not be repeated for credit, and it also may not be repeated to satisfy senior requirements for graduation.
+
+If you want a special topics course you can take more than once, ECE 489 Special Topics in Cybersecurity (3 credit hours) may be repeated on a different special topic, up to a maximum of 6 hours. Its prerequisite is COSC 366 or ECE 362 with a grade of C or better."
+cd013-B,cd013,Can ECE 491 Special Topics be repeated for credit?,No. May not be repeated for credit. Course may not be repeated to satisfy senior requirements for graduation.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367236,B,"No. The UT Knoxville catalog lists ECE 491: Special Topics as ""May not be repeated for credit."""
+cd015-A,cd015,Can a student receive credit for both COSC 370 and MATH 371?,No. Students may not receive credit for both COSC 370 and MATH 371.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367197,A,"No. A student may not receive credit for both COSC 370 and MATH 371. The restriction is listed under both courses.
+
+The same applies to the honors version: students may not receive credit for both COSC 377 (Honors: Introduction to Scientific Computing, described as the same as COSC 370 plus an honors project) and MATH 371."
+cd015-B,cd015,Can a student receive credit for both COSC 370 and MATH 371?,No. Students may not receive credit for both COSC 370 and MATH 371.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367197,B,"No. UTK's COSC 370 catalog entry says students may not receive credit for both COSC 370 and MATH 371. Some program pages list both courses among numerical-analysis options, but that doesn't override the course's credit restriction.
+
+The cited course entry is from an older catalog year, so check the catalog for your catalog year or confirm with your academic advisor if you need a current ruling."
+cd016-A,cd016,What is the prerequisite for COSC 312?,(RE) Prerequisite(s): COSC 311 or COSC 317 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369056,A,"The prerequisite for COSC 312 (Algorithm Analysis and Automata, 3 credit hours) is COSC 311 or COSC 317 with a grade of C or better.
+
+Both COSC 311 and its honors version, COSC 317, in turn require COSC 202 with a grade of C or better, plus MATH 142 or MATH 148 with a grade of C or better."
+cd016-B,cd016,What is the prerequisite for COSC 312?,(RE) Prerequisite(s): COSC 311 or COSC 317 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369056,B,"The current UTK catalog lists COSC 311 or COSC 317, with a grade of C or better, as the prerequisite for COSC 312. COSC 312 is also listed in the Computer Science BS program requirements.
+
+An older catalog lists only COSC 311, so check the catalog for your specific academic year if you're following an earlier catalog."
+cd017-A,cd017,What are the corequisites for COSC 103?,(RE) Corequisite(s): COSC 104 and MATH 132 or MATH 141 or MATH 147,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391301,A,"COSC 103 has these corequisites:
+
+- COSC 104 (Introduction to Computer Science Laboratory, 1 credit hour), and
+- MATH 132* or MATH 141* or MATH 147*
+
+COSC 104 lists COSC 103 as its own corequisite, so the two are designed to be taken together.
+
+COSC 103 also has a prerequisite, which must be completed beforehand: COSC 101 with a grade of C or better."
+cd017-B,cd017,What are the corequisites for COSC 103?,(RE) Corequisite(s): COSC 104 and MATH 132 or MATH 141 or MATH 147,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391301,B,"COSC 103's corequisite is COSC 104, Introduction to Computer Science Laboratory. The catalog lists COSC 104 as a corequisite of COSC 103. COSC 103 also requires COSC 101 with a grade of C or better as a prerequisite."
+cd018-A,cd018,What are the prerequisites for COSC 325 Introduction to Machine Learning?,ECE 313 or ECE 317 or MATH 323 with a grade of C or better; and MATH 251 or MATH 257 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367199,A,"The UTK catalog lists ECE 313, ECE 317, or MATH 323 as the prerequisite options for COSC 325. You need one of those courses, not all three. The 2024–2025 and 2025–2026 catalog listings show the same requirement."
+cd018-B,cd018,What are the prerequisites for COSC 325 Introduction to Machine Learning?,ECE 313 or ECE 317 or MATH 323 with a grade of C or better; and MATH 251 or MATH 257 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367199,B,"COSC 325 (3 credit hours) requires both of the following:
+
+- ECE 313 or ECE 317 or MATH 323, with a grade of C or better
+- MATH 251 or MATH 257, with a grade of C or better
+
+The catalog also notes that prior knowledge may satisfy the prerequisite with consent of the instructor.
+
+These courses have prerequisites of their own. ECE 313, ECE 317, and MATH 251 each require MATH 142 or MATH 148. MATH 323 requires MATH 241 or MATH 247, plus MATH 300 or MATH 307. MATH 257 requires MATH 148 and permission of the instructor."
+cd019-A,cd019,What is the prerequisite for COSC 424 Introduction to Deep Learning?,COSC 325 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370446,A,"The catalog search snippet lists COSC 302 or COSC 307, with a grade of C or better, as a prerequisite component. However, the snippet cuts off after ""and,"" so it doesn't show the complete requirement. The course page identifies COSC 424 as Introduction to Deep Learning but doesn't include the prerequisite in the fetched text."
+cd019-B,cd019,What is the prerequisite for COSC 424 Introduction to Deep Learning?,COSC 325 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370446,B,"The prerequisite for COSC 424 (3 credit hours) is COSC 325 with a grade of C or better. The catalog also notes that prior knowledge may satisfy the prerequisite with consent of the instructor.
+
+If you haven't taken COSC 325 yet, it requires ECE 313 or ECE 317 or MATH 323 with a grade of C or better, and MATH 251 or MATH 257 with a grade of C or better."
+cd023-A,cd023,What are the prerequisites for ECE 342 Fundamentals of Communications?,"ECE 313 or ECE 317 with a grade of C or better, and ECE 315 with a grade of C or better.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367220,A,"The UT Knoxville electrical-engineering curriculum materials indicate the prerequisites are ECE 313 or ECE 317, plus ECE 315. The course catalog identifies ECE 342 as Fundamentals of Communications, but the catalog text available here doesn't show its prerequisite line, so confirm the requirement in your registration system before enrolling. The curriculum documents also describe ECE 342 as part of the electrical-engineering course sequence."
+cd023-B,cd023,What are the prerequisites for ECE 342 Fundamentals of Communications?,"ECE 313 or ECE 317 with a grade of C or better, and ECE 315 with a grade of C or better.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367220,B,"ECE 342 (3 credit hours) has these prerequisites:
+
+- ECE 313 or ECE 317 with a grade of C or better, and
+- ECE 315 with a grade of C or better.
+
+The courses before those are:
+
+- ECE 313 and ECE 317 each require MATH 142 or MATH 148 with a grade of C or better.
+- ECE 315 requires ECE 202 with a grade of C or better.
+
+In the Electrical Engineering BS plan, ECE 342 is in Term 6."
+cd024-A,cd024,What is the prerequisite for MATH 141 Calculus I?,MATH 130 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367964,A,"For UTK's 2025–2026 catalog, MATH 141 requires MATH 130 with a grade of C or better. An older catalog also listed a satisfactory placement test score as an alternative, so check with UTK Math Placement if you're relying on placement rather than MATH 130."
+cd024-B,cd024,What is the prerequisite for MATH 141 Calculus I?,MATH 130 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367964,B,"The prerequisite for MATH 141 (Calculus I, 4 credit hours) is MATH 130 with a grade of C or better.
+
+Also note that if you've already earned a C or better in MATH 132, you can't later receive credit for MATH 141. The honors version, MATH 147, has the same prerequisite. It also expects a 32 math ACT score, a 700 quantitative SAT score, or instructor permission."
+cd026-A,cd026,What are the prerequisites for DATA 401 Visual Analytics?,DATA 202 and DATA 203,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370981,A,"The available UTK pages confirm that DATA 401: Visual Analytics appears in the Data Science major and other program listings, but the page excerpts I could access don't specify its course prerequisites.
+
+So I can't verify from these sources whether DATA 401 has a required prerequisite or whether enrollment is restricted. Check the current UTK course catalog's DATA 401 course entry or your registration system for the official prerequisite and any term-specific restrictions."
+cd026-B,cd026,What are the prerequisites for DATA 401 Visual Analytics?,DATA 202 and DATA 203,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370981,B,"DATA 401 - Visual Analytics (3 credit hours) requires both DATA 202 and DATA 203 as prerequisites.
+
+Those two courses have their own prerequisites:
+- DATA 202 requires DATA 101 or DATA 111.
+- DATA 203 requires DATA 101 or DATA 111, and also DATA 102.
+
+So the full path to DATA 401 is DATA 101 (or DATA 111), DATA 102, DATA 202, and DATA 203. DATA 111 is restricted to CECS Data Science majors, has CECS 250 as a corequisite, and you can't receive credit for both DATA 101 and DATA 111."
+cd027-A,cd027,What are the prerequisite and corequisite for ECE 336 Electronic Circuits?,Prerequisite: ECE 335 with a grade of C or better. Corequisite: ECE 315.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367218,A,"For the 2025–2026 UTK catalog, ECE 336 requires ECE 335 with a grade of C or better as the prerequisite. An older catalog lists ECE 315 as the corequisite.
+
+Catalog requirements have changed across years: another older course listing gives a different prerequisite, ECE 202. Check the catalog for your specific academic year to confirm the corequisite."
+cd027-B,cd027,What are the prerequisite and corequisite for ECE 336 Electronic Circuits?,Prerequisite: ECE 335 with a grade of C or better. Corequisite: ECE 315.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367218,B,"ECE 336 (Electronic Circuits, 3 credit hours) requires:
+
+- Prerequisite: ECE 335 with a grade of C or better
+- Corequisite: ECE 315
+
+Both ECE 335 and ECE 315 in turn require ECE 202 with a grade of C or better."
+cd028-A,cd028,What is the prerequisite for ECE 414 Introduction to Reinforcement Learning?,COSC 325 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370449,A,"The prerequisite for ECE 414, Introduction to Reinforcement Learning, is ECE 315 with a grade of C or better."
+cd028-B,cd028,What is the prerequisite for ECE 414 Introduction to Reinforcement Learning?,COSC 325 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370449,B,"ECE 414 (3 credit hours) requires COSC 325 with a grade of C or better. If you haven't taken COSC 325, prior knowledge may satisfy the prerequisite with consent of the instructor.
+
+COSC 325 itself requires both of the following:
+- ECE 313 or ECE 317 or MATH 323, with a grade of C or better
+- MATH 251 or MATH 257, with a grade of C or better"
+cd030-A,cd030,What are the (RE) and (DE) prerequisites for ECE 341 Fields?,"(RE): ECE 202 with a grade of C or better, and MATH 241 or MATH 247 with a grade of C or better. (DE): PHYS 251.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367219,A,"For ECE 341 - Fields (3 credit hours):
+
+- (RE) Prerequisites: ECE 202 with a grade of C or better, and MATH 241 or MATH 247 with a grade of C or better.
+- (DE) Prerequisite: PHYS 251.
+
+The honors version, ECE 347 - Honors: Fields, has the same (RE) and (DE) prerequisites.
+
+The excerpts don't explain what (RE) and (DE) mean, or what the asterisk after PHYS 251 indicates, so check with your advisor or the catalog's key on those."
+cd030-B,cd030,What are the (RE) and (DE) prerequisites for ECE 341 Fields?,"(RE): ECE 202 with a grade of C or better, and MATH 241 or MATH 247 with a grade of C or better. (DE): PHYS 251.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367219,B,"The catalog listings aren't fully consistent across years. The newer listing identifies ECE 202 as an (RE) prerequisite, while an older catalog lists ECE 300 and Mathematics 241 as (RE) prerequisites and Physics 232 as the (DE) prerequisite.
+
+A 2014–15 catalog also lists ECE 202 and Mathematics 241 as required prerequisites. Since the current listing's full prerequisite text wasn't available in the fetched page, check the catalog for your academic year to confirm the exact requirements."
+cd031-A,cd031,What is the prerequisite for COSC 465 Databases and Scripting Languages?,COSC 311 or COSC 317 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369060,A,"The prerequisite is COSC 302 or COSC 307, with a grade of C or better."
+cd031-B,cd031,What is the prerequisite for COSC 465 Databases and Scripting Languages?,COSC 311 or COSC 317 with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369060,B,"The prerequisite for COSC 465 - Databases and Scripting Languages (3 credit hours) is COSC 311 or COSC 317, with a grade of C or better.
+
+COSC 311 (Discrete Structures) and its honors version, COSC 317, both require COSC 202 with a grade of C or better, and either MATH 142 or MATH 148 with a grade of C or better."
+cd032-A,cd032,What is the prerequisite for MATH 148 Honors Calculus II?,MATH 147,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367967,A,"The listed prerequisite for MATH 148 - Honors: Calculus II (4 credit hours) is MATH 147 (Honors: Calculus I).
+
+The course entry also adds this comment: ""Students should have a 32 mathematics ACT score or a 700 quantitative SAT score and credit for MATH 132 or MATH 141, an AP Calculus score of 5, or permission of the instructor to enroll"".
+
+If you're working toward the Mathematics BS, MATH 148 counts as an alternative to MATH 142 in the college prerequisites, and each of those courses must be completed with a grade of C or better."
+cd032-B,cd032,What is the prerequisite for MATH 148 Honors Calculus II?,MATH 147,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367967,B,"The listed prerequisite for MATH 148: Honors Calculus II is MATH 147: Honors Calculus I. UTK's math-major requirements also list MATH 147 before MATH 148.
+
+The catalog's comments mention recommended math placement qualifications, but those are separate from the formal prerequisite."
+cd033-A,cd033,How many total credit hours is the Computer Science BS?,121-123,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,A,"The University of Tennessee, Knoxville (UTK) Computer Science BS requires 120 credit hours. The UTK catalog's program page is the official reference, though the page content available in my search results didn't display the total directly."
+cd033-B,cd033,How many total credit hours is the Computer Science BS?,121-123,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,B,"The BS in Computer Science requires 121-123 total credit hours.
+
+The range comes from course choices in the eight-term plan. Term 1 is 14-15 hours and Term 3 is 16-17 hours. The other terms are fixed at 15 or 16 hours.
+
+If you don't come in with programming experience, the catalog says to take COSC 101 in your first term, which pushes certain footnoted courses back one semester."
+cd034-A,cd034,How many total credit hours is the Applied Artificial Intelligence BS?,120,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36396,A,"The Applied Artificial Intelligence BS is 120 credit hours, designed to be completed in 4 years. The Technical Communication, Leadership Studies, and Applied Computing concentrations also total 120 credit hours."
+cd034-B,cd034,How many total credit hours is the Applied Artificial Intelligence BS?,120,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36396,B,"The University of Tennessee, Knoxville's Applied Artificial Intelligence BS requires 120 total credit hours."
+cd036-A,cd036,How many TOPS credit hours does the Applied AI BS Applied Computing concentration require?,18 credit hours,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36491,A,"The program requires 18 credit hours of Transdisciplinary Options (TOPS) credit.
+
+- Ways to satisfy it: You can complete a certificate, minor, second major, or second bachelor's degree from the catalog's list, or choose from the Applied AI program electives. The catalog notes that you should check those electives for their individual prerequisites.
+- Where TOPS fits in the plan: The sample plan has six 3-credit TOPS electives, one each in Terms 2, 3, 6, and 8 and two in Term 4.
+- Milestones: Term 4 requires you to ""Define TOPS plan"". Term 6 requires you to have completed at least two TOPS electives."
+cd036-B,cd036,How many TOPS credit hours does the Applied AI BS Applied Computing concentration require?,18 credit hours,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36491,B,"The TOPS elective requirement is 3 credit hours in the Applied AI BS catalog. The Applied Computing concentration itself is 12 credit hours, according to UT's catalog and CECS program page."
+cd038-A,cd038,What is the required course for the Applied Artificial Intelligence Certificate?,Select ONE of AI 101 Introduction to the World of AI or AI 102 Natural Language-based Programming Techniques.,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36373,A,"The available information doesn't identify a specific required course for the Applied Artificial Intelligence Certificate. UT describes it as a 12-credit-hour certificate, but the course list isn't included in the page content I could access.
+
+AI 101: Introduction to the World of AI is listed as a required gateway course for UT's Applied Artificial Intelligence minor, not confirmed as a requirement for the certificate. The certificate's catalog page wouldn't load its program details, so I can't verify the required course from that source."
+cd038-B,cd038,What is the required course for the Applied Artificial Intelligence Certificate?,Select ONE of AI 101 Introduction to the World of AI or AI 102 Natural Language-based Programming Techniques.,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36373,B,"The Applied Artificial Intelligence Certificate's required course is a choice: you select one of these two (3 credit hours):
+
+- AI 101 - Introduction to the World of AI (3 credit hours)
+- AI 102 - Natural Language-based Programming Techniques (3 credit hours)
+
+The certificate also has elective requirements. One list says to select any one course from AI 201, AI 202, or AI 301 (3 credit hours). Another says to select any two courses from AI 301, AI 302, or AI 311 (6 credit hours). AI 301 appears on both lists, and the excerpts don't explain how the two lists fit together, so check with your academic advisor."
+cd039-A,cd039,What are the core courses for the Mathematics BS major?,"MATH 231, MATH 241, MATH 251, MATH 295, MATH 300, MATH 495 (or honors equivalents).",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35820,A,"The core for the Mathematics Major, BS requires all of the following, or their honors equivalents:
+
+- MATH 231 - Differential Equations I (3 credit hours)
+- MATH 241 - Calculus III (4 credit hours)
+- MATH 251 - Linear Algebra I (3 credit hours)
+- MATH 295 - Introduction to Mathematical Sciences (1 credit hour)
+- MATH 300 - Introduction to Abstract Mathematics (3 credit hours)
+- MATH 495 - Math Proficiency (0 credit hours)
+
+The overview also states that majors must take MATH 495 to graduate. The Applied Math Concentration has the same core list.
+
+The core is separate from the major's prerequisites. Each prerequisite must be completed with a grade of C or better:
+
+- One calculus I course: MATH 132, MATH 141, or MATH 147
+- One calculus II course: MATH 142 or MATH 148
+- Either MATH 171, or both COSC 103 and COSC 104"
+cd039-B,cd039,What are the core courses for the Mathematics BS major?,"MATH 231, MATH 241, MATH 251, MATH 295, MATH 300, MATH 495 (or honors equivalents).",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35820,B,"The UT catalog snippets confirm these courses in the Mathematics BS core:
+
+MATH 231: Differential Equations I
+MATH 241: Calculus III
+MATH 251: Matrix Algebra I
+The current catalog snippet lists MATH 231 and MATH 241, while an older catalog listing also names MATH 251. The catalog page isn't displaying the full course list in the available content, so I can't verify whether this is the complete core for the current catalog year. UT's Mathematics BS program page also doesn't show the course breakdown in its available text."
+cd040-A,cd040,How many hours and courses make up the Mathematics major concentration?,"41 hours in fourteen courses, divided into five categories.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35820,A,"The Mathematics major concentration is 41 hours in fourteen courses. The Applied Math Concentration has the same total.
+
+The catalog divides those courses into five categories:
+1. Core courses
+2. Courses for breadth
+3. Courses for education breadth
+4. Courses for depth
+5. Additional courses to reach 41 hours
+
+The core includes MATH 495, which every major must take to graduate.
+
+The calculus and computing prerequisites (for example MATH 141 or MATH 142, each completed with a grade of C or better) are listed separately under College Requirements > Prerequisites."
+cd040-B,cd040,How many hours and courses make up the Mathematics major concentration?,"41 hours in fourteen courses, divided into five categories.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35820,B,"At UT Knoxville, the catalog listing for the Mathematics, BS concentration requires 41 credit hours across 14 courses, grouped into five categories. The Applied Math and Actuarial Sciences concentration listings also show 41 hours and 14 courses.
+
+The exact requirements depend on which concentration you mean and your catalog year. UT offers several options, including Applied Math, Actuarial Sciences, Math Biology, Math Education, and Theoretical Math, as well as a general Mathematics BS with no concentration."
+cd041-A,cd041,What overall GPA must a student maintain for the Computer Science honors concentration?,3.4,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,A,"A student must maintain an overall GPA of 3.4 for the Computer Science honors concentration at the University of Tennessee, Knoxville."
+cd041-B,cd041,What overall GPA must a student maintain for the Computer Science honors concentration?,3.4,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,B,"Students in the Computer Science honors concentration must maintain an overall GPA of 3.4.
+
+That GPA is one of several requirements the concentration adds on top of the major:
+- Four 100- or 200-level honors courses (14 hours minimum), at least two of them from Materials Science and Engineering, Engineering Fundamentals, Physics, Math, Chemistry, Biology, Statistics, or MSE 117 or MSE 207.
+- Two upper-division honors courses in computer science or electrical and computer engineering (for example COSC 307, COSC 317, COSC 367, COSC 377, COSC 427, or ECE 317).
+- The Breadth Requirements for the Cook Grand Challenge Honors Program."
+cd042-A,cd042,How many total credit hours is the Electrical Engineering BS?,127-131,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35741,A,"The Electrical Engineering BS requires 127-131 total credit hours. The range comes from options in the plan, such as Term 1 (13-14 hours, depending on your math course) and Term 8 (15-18 hours, depending on whether you need an Engaged Inquiries elective)."
+cd042-B,cd042,How many total credit hours is the Electrical Engineering BS?,127-131,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35741,B,"The University of Tennessee, Knoxville's Electrical Engineering BS requires 127 total credit hours."
+cd043-A,cd043,What courses make up the Applied Computing concentration of the Applied AI BS?,"Required: AC 101 and AC 102 (6 credit hours). Then one track, both courses: Web Development (AC 202 and AC 302) or Cloud Computing (AC 211 and AC 311). 12 credit hours total.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36491,A,"The Applied Computing concentration is 12 credit hours, and UT describes it as building a foundation in key computing concepts. The program page I could access doesn't name the courses in the concentration.
+
+The UT catalog pages that appear to contain the degree requirements didn't load their course details in the available results, so I can't reliably list the specific classes from those pages. I'd avoid treating the Applied Computing courses listed for UT's separate Data Science major as the Applied AI concentration requirements."
+cd043-B,cd043,What courses make up the Applied Computing concentration of the Applied AI BS?,"Required: AC 101 and AC 102 (6 credit hours). Then one track, both courses: Web Development (AC 202 and AC 302) or Cloud Computing (AC 211 and AC 311). 12 credit hours total.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36491,B,"The Applied Computing concentration is 12 credit hours: two required courses plus one two-course track.
+
+Required courses (6 credit hours):
+- AC 101 - Introduction to Applied Computing I (3 credit hours)
+- AC 102 - Introduction to Applied Computing II (3 credit hours)
+
+Choose one track and complete both of its courses (6 credit hours):
+- Web Development: AC 202 - Introduction to Web Development and AC 302 - Advanced Web Development (3 credit hours each)
+- Cloud Computing: AC 211 - Introduction to Cloud Computing and Databases and AC 311 - Cloud Computing Applications (3 credit hours each)
+
+In the four-year plan, AC 101 is in Term 5 and AC 102 is in Term 6. The track's first course is in Term 7 and its second course is in Term 8. Students who take AC 202 in Term 7 must take AC 302 in Term 8, and students who take AC 211 in Term 7 must take AC 311 in Term 8."
+cd044-A,cd044,What courses are required for the Leadership Studies concentration of the Applied AI BS?,"LEAD 201, LEAD 349, LEAD 350, LEAD 352 (9 credit hours), plus one of LEAD 210 or LEAD 490 (3 credit hours).",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36501,A,"The Leadership Studies concentration in the Applied Artificial Intelligence BS is 12 credit hours.
+
+Required courses (9 credit hours):
+- LEAD 201 - Introduction to Leadership Studies, 3 credit hours
+- LEAD 349 - Leadership Learning Through Practice, 2 credit hours
+- LEAD 350 - Coached Leadership Practicum, 1 credit hour
+- LEAD 352 - Leadership and Change Processes, 3 credit hours
+
+Then select one course (3 credit hours):
+- LEAD 210 - Ethics in Leadership, 3 credit hours, or
+- LEAD 490 - Contemporary Issues in Leadership Studies, 3 credit hours
+
+In the suggested sequence, LEAD 201 falls in Term 5, LEAD 349 and LEAD 350 in Term 6, LEAD 352 in Term 7, and the LEAD 210 or LEAD 490 choice in Term 8. The Term 6 milestone requires completing at least one Leadership Studies concentration course."
+cd044-B,cd044,What courses are required for the Leadership Studies concentration of the Applied AI BS?,"LEAD 201, LEAD 349, LEAD 350, LEAD 352 (9 credit hours), plus one of LEAD 210 or LEAD 490 (3 credit hours).",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36501,B,"The Leadership Studies concentration requires 12 credit hours. UT's Applied AI program page describes the concentration's focus, but the course names aren't shown in the page content available here.
+
+The UT catalog entry appears to contain the specific requirements, but it currently returns a robot-verification page, so I can't verify the course list from it. I don't want to guess at the required courses. You can check the Applied AI BS catalog entry or contact the College of Emerging and Collaborative Studies for the current list."
+cd045-A,cd045,What is the Term 1 uTrack milestone for the Applied AI BS?,GPA of 2.5 or above,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36396,A,"The Term 1 uTrack milestone for the Applied Artificial Intelligence BS is a GPA of 2.5 or above. The Technical Communication Concentration has the same Term 1 milestone.
+
+That term's planned courses are an NS Elective, AI 101, CECS 101, CECS 250, and ENGL 101 (or equivalent), for 15 credit hours. uTrack milestones apply only to full-time, degree-seeking students."
+cd045-B,cd045,What is the Term 1 uTrack milestone for the Applied AI BS?,GPA of 2.5 or above,https://catalog.utk.edu/preview_program.php?catoid=56&poid=36396,B,The Term 1 uTrack milestone is a semester GPA of 2.5 or above.
+cd046-A,cd046,What minimum grade does the EECS department require in computer science and mathematics courses used for the Computer Science degree?,"At least a C in every computer engineering, computer science, electrical engineering, and mathematics course used for the undergraduate degrees.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,A,"The department requires at least a C in every computer engineering, computer science, electrical engineering, and mathematics course used for the undergraduate degrees. The Electrical Engineering program states the same policy."
+cd046-B,cd046,What minimum grade does the EECS department require in computer science and mathematics courses used for the Computer Science degree?,"At least a C in every computer engineering, computer science, electrical engineering, and mathematics course used for the undergraduate degrees.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,B,The UTK EECS department requires a C or higher in computer science and mathematics courses used for the Computer Science degree. The requirement is stated in the department's catalog materials.
+cd047-A,cd047,What are the required courses for the Technical Communication concentration of the Applied AI BS?,"ENGL 360, plus two of ENGL 460, ENGL 461, ENGL 462, ENGL 466 (9 credit hours), plus one concentration elective in rhetoric or writing (3 credit hours).",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36497,A,"The Technical Communication concentration is 12 credit hours. The UT catalog excerpt lists a choice of one course, including:
+
+ENGL 460: Technical Editing (3 credit hours)
+ENGL 461: Global Communication for Science and … (the course title is cut off in the available catalog excerpt)
+The excerpt doesn't show the full list of course options or the other concentration requirements, so I can't confirm the complete set from the information available here. The catalog listing is the best place to verify the current requirements."
+cd047-B,cd047,What are the required courses for the Technical Communication concentration of the Applied AI BS?,"ENGL 360, plus two of ENGL 460, ENGL 461, ENGL 462, ENGL 466 (9 credit hours), plus one concentration elective in rhetoric or writing (3 credit hours).",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36497,B,"The Technical Communication concentration is 12 credit hours:
+
+Required courses (9 credit hours)
+- ENGL 360 - Technical and Professional Writing (3 credit hours)
+- Two of the following:
+ - ENGL 460 - Technical Editing (3)
+ - ENGL 461 - Global Communication for Science and Technology (3)
+ - ENGL 462 - Writing for Publication (3)
+ - ENGL 466 - Writing, Layout, and Production of Technical Documents (3)
+
+Concentration elective (3 credit hours)
+- One additional rhetoric or writing course: ENGL 355, ENGL 357 (Honors), ENGL 455, ENGL 460, ENGL 461, ENGL 462, ENGL 466, ENGL 470, or ENGL 494.
+
+In the four-year plan, ENGL 360 falls in Term 5. One of the ENGL 460/461/462/466 courses falls in Term 6 and the other in Term 7, and the concentration elective is in Term 8. The Term 6 milestone requires completing at least one Technical Communication concentration course."
+cd048-A,cd048,What is the full prerequisite chain to take COSC 424 Introduction to Deep Learning?,"COSC 424 requires COSC 325 with a grade of C or better. COSC 325 requires ECE 313 or ECE 317 or MATH 323 with a grade of C or better, and MATH 251 or MATH 257 with a grade of C or better.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370446 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367199,A,"COSC 424 needs COSC 325 with a grade of C or better. Here is the chain beneath it, as far as these excerpts go:
+
+1. COSC 424 requires COSC 325 with a grade of C or better. Prior knowledge may satisfy the prerequisite with consent of instructor.
+
+2. COSC 325 requires both of the following, each with a grade of C or better:
+ - ECE 313 or ECE 317 or MATH 323
+ - MATH 251 or MATH 257
+
+ Prior knowledge may also satisfy this with consent of instructor. STAT 251 is not an option for COSC 325, even though it is accepted for COSC 423 and COSC 426.
+
+3. Probability options:
+ - ECE 313 requires MATH 142* or MATH 148* with a grade of C or better.
+ - ECE 317 has the same prerequisite as ECE 313.
+ - MATH 323 requires MATH 241 or MATH 247, and MATH 300 or MATH 307.
+
+4. Linear algebra options:
+ - MATH 251 requires MATH 142* or MATH 148*. No grade condition is listed.
+ - MATH 257 requires MATH 148* and permission of the instructor.
+
+5. Calculus II:
+ - MATH 142 requires MATH 132* or MATH 141* or MATH 147*.
+ - MATH 148 requires MATH 147*. The catalog notes that students should have a 32 math ACT, a 700 quantitative SAT and credit for MATH 132* or MATH 141*, an AP Calculus score of 5, or permission of the instructor.
+
+The excerpts don't include entries for MATH 132, 141, 147, 241, 247, 300, or 307, so I can't tell you their prerequisites.
+
+The most direct path is: MATH 141 (or 132/147) → MATH 142 → ECE 313 and MATH 251 (C or better in each) → COSC 325 (C or better) → COSC 424."
+cd048-B,cd048,What is the full prerequisite chain to take COSC 424 Introduction to Deep Learning?,"COSC 424 requires COSC 325 with a grade of C or better. COSC 325 requires ECE 313 or ECE 317 or MATH 323 with a grade of C or better, and MATH 251 or MATH 257 with a grade of C or better.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370446 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367199,B,"Confirmed prerequisite
+The 2025–2026 UTK catalog lists COSC 325 with a grade of C or better as the prerequisite for COSC 424, Introduction to Deep Learning.
+
+Confirmed chain: COSC 325 (C or better) → COSC 424
+
+The catalog excerpts available here don't show COSC 325's own prerequisites, so I can't verify any earlier courses in the chain without guessing. The older catalog entry confirms the COSC 424 course listing, but its retrieved text doesn't provide additional prerequisite details. The course-description search result mentions that prior knowledge may satisfy prerequisites with instructor consent; check with the instructor or department to see whether that applies to you."
+cd049-A,cd049,What are the prerequisites for COSC 471 Numerical Analysis?,COSC 471 is cross-listed: (See MATH 471.) MATH 471 prerequisites: (RE) MATH 231; MATH 200 or MATH 251 or MATH 257. (DE) MATH 371.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367201 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=368004,A,"COSC 471 is the same course as MATH 471 and uses the MATH 471 listing. Its prerequisites are:
+
+- (RE) Prerequisite(s): MATH 231; MATH 200 or MATH 251 or MATH 257.
+- (DE) Prerequisite(s): MATH 371.
+
+The catalog also says knowledge of a high-level programming language is required.
+
+The excerpts don't explain what the ""(RE)"" and ""(DE)"" labels mean, so check with your advisor or the catalog's key for how they apply to you.
+
+COSC 370 has a credit restriction with MATH 371: you can't receive credit for both. The excerpts don't say whether COSC 370 satisfies the MATH 371 prerequisite for COSC 471."
+cd049-B,cd049,What are the prerequisites for COSC 471 Numerical Analysis?,COSC 471 is cross-listed: (See MATH 471.) MATH 471 prerequisites: (RE) MATH 231; MATH 200 or MATH 251 or MATH 257. (DE) MATH 371.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367201 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=368004,B,"COSC 471 (Numerical Analysis) is cross-listed as MATH 471. The catalog lists these required prerequisites:
+
+MATH 231
+One of MATH 200, MATH 251, or MATH 257
+It also lists MATH 371 as a desirable prerequisite, rather than part of the required prerequisite sequence. The older catalog confirms the same required courses."
+cd050-A,cd050,"What must I take before COSC 361 Operating Systems, and what does that course itself require?",COSC 361 requires COSC 360 or COSC 367 with a grade of C or better. COSC 360 requires (COSC 303 or COSC 308) or (ECE 351 or ECE 357) with a grade of C or better and (COSC 230 or ECE 256) with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369057 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367195,A,"COSC 361 requires COSC 360 or COSC 367, with a grade of C or better.
+
+COSC 360 (Systems Programming, 4 credit hours) and its honors version COSC 367 have the same prerequisites:
+
+- (COSC 303 or COSC 308) or (ECE 351 or ECE 357), with a grade of C or better, and
+- COSC 230 or ECE 256, with a grade of C or better.
+
+Here is what those courses require:
+
+- COSC 303 (Algorithms): COSC 202 or COSC 203 with a grade of C or better. COSC 304 is a corequisite.
+- COSC 308 (Honors: Algorithms): COSC 304 is a corequisite. The excerpt lists no prerequisite. It describes the course as ""Same as COSC 302,"" a number that doesn't appear elsewhere in these excerpts.
+- ECE 351 / ECE 357: ECE 255 with a grade of C or better.
+- COSC 230 (Computer Organization): COSC 102 with a grade of C or better.
+- ECE 256: ECE 255 with a grade of C or better.
+
+For CS majors, the program also requires at least a C in every computer science, computer engineering, electrical engineering, and math course used for the degree."
+cd050-B,cd050,"What must I take before COSC 361 Operating Systems, and what does that course itself require?",COSC 361 requires COSC 360 or COSC 367 with a grade of C or better. COSC 360 requires (COSC 303 or COSC 308) or (ECE 351 or ECE 357) with a grade of C or better and (COSC 230 or ECE 256) with a grade of C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369057 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367195,B,"Prerequisites
+The UTK catalog lists these prerequisites for COSC 361:
+
+COSC 302 or COSC 307, with a grade of C or better
+COSC 230 or ECE 256, also with a grade of C or better
+An older catalog page gives a different prerequisite, COSC 160 and COSC 302, so rely on the newer catalog listing rather than that archived information.
+
+What the course requires
+The Spring 2026 course page describes a combination of two midterm exams, a cumulative final, projects, and zyBooks activities. Coursework includes readings from Operating Systems: Three Easy Pieces and programming projects involving the xv6 operating-system environment. Students are directed to install the xv6 toolchain on their laptop; assignment details and the grading formula are provided through the course materials.
+
+COSC 361 is also listed among UTK's computer science course offerings for Fall 2026, but check that term's syllabus and catalog for any changes to prerequisites or workload."
+cd051-A,cd051,"In which term does the Computer Science BS plan list COSC 312, and what is its prerequisite?",Term 4. Prerequisite: COSC 311 or COSC 317 with a grade of C or better.,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369056,A,"The plan lists COSC 312 - Algorithm Analysis and Automata (3 credit hours) in Term 4.
+
+Its prerequisite is COSC 311 or COSC 317 with a grade of C or better. The plan places COSC 311 / COSC 317 (Discrete Structures) in Term 3, the term just before."
+cd051-B,cd051,"In which term does the Computer Science BS plan list COSC 312, and what is its prerequisite?",Term 4. Prerequisite: COSC 311 or COSC 317 with a grade of C or better.,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369056,B,"COSC 312 appears in Term 5 of the Computer Science BS plan, alongside COSC 340. Its prerequisite is COSC 311 or COSC 317, with a grade of C or better. An earlier catalog version lists COSC 311 as the prerequisite."
+cd056-A,cd056,Which Term 1 course of the Applied AI BS is a corequisite of AI 111?,CECS 250,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391384 | https://catalog.utk.edu/preview_program.php?catoid=56&poid=36396,A,"CECS 250 (Computational and Mathematical Tools for Data Science and Applied Artificial Intelligence, 3 credit hours) is the corequisite of AI 111, and it appears in Term 1 of the Applied AI BS plan.
+
+The Term 1 plan lists AI 101* (Introduction to the World of AI) rather than AI 111. You cannot receive credit for both AI 101* and AI 111. AI 111 is also restricted to CECS Applied Artificial Intelligence majors."
+cd056-B,cd056,Which Term 1 course of the Applied AI BS is a corequisite of AI 111?,CECS 250,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391384 | https://catalog.utk.edu/preview_program.php?catoid=56&poid=36396,B,"I can't verify the course from the available page. The UTK catalog link returned a robot-check page rather than the Applied AI BS curriculum, so it doesn't show AI 111's corequisite. The other search results aren't for UTK's Applied AI program."
+cd058-A,cd058,What is the difference between MATH 141 and MATH 147?,"Both are 4-credit Calculus I. MATH 147 is the honors version for well-prepared students (students should have a 32 math ACT, 700 quantitative SAT, or instructor permission). Credit will not be given for both.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367964 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367966,A,"MATH 147 is the Honors version of MATH 141, intended for well-prepared students. The excerpts don't describe how the honors content differs, only the points below.
+
+What's the same:
+- Both are 4 credit hours.
+- Both satisfy the Volunteer Core Requirement (QR).
+- Both require MATH 130 with a grade of C or better as a prerequisite.
+
+What's different:
+- Recommended preparation: MATH 147 says students should have a 32 mathematics ACT score, a 700 quantitative SAT score, or permission from the instructor to enroll. MATH 141 has no such comment.
+- Credit restrictions: You can't get credit for both MATH 147 and MATH 132, MATH 141, or MATH 152. For MATH 141, students who earn a C or better in MATH 132 can't later receive credit for MATH 141.
+- Description: MATH 141 is described as single-variable calculus especially for students of science, engineering, mathematics, and computer science, covering differential calculus with applications. MATH 147 is described only as the honors version of MATH 141.
+
+Because of the credit restriction, you would take one or the other, not both."
+cd058-B,cd058,What is the difference between MATH 141 and MATH 147?,"Both are 4-credit Calculus I. MATH 147 is the honors version for well-prepared students (students should have a 32 math ACT, 700 quantitative SAT, or instructor permission). Credit will not be given for both.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367964 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367966,B,"MATH 141 vs. MATH 147 at UT
+Both are Calculus I. MATH 147 is the honors version of MATH 141, intended for well-prepared students. The main difference is the honors designation and the greater preparation expected, rather than a different place in the calculus sequence.
+
+Course
+Description
+Placement
+MATH 141
+Calculus I
+Placement level 4
+MATH 147
+Honors: Calculus I
+Placement level 5
+
+Copy
+
+Translate
+
+TTS
+
+Export
+UT's placement guidance lists MATH 147 for students with higher math placement scores than those needed for MATH 141. Both courses require knowledge of trigonometry; students who need it should take MATH 130 first.
+
+UT's catalog restricts students from receiving credit for both MATH 147 and MATH 141, so they're treated as alternatives rather than courses to take for separate credit. If you're choosing between them, follow your placement result and your major's requirements; UT advises checking with an academic adviser if you're unsure which course your program needs."
+cd059-A,cd059,What is the difference between COSC 360 and COSC 367?,"COSC 367 is Honors: Systems Programming, same as COSC 360 with an additional honors project. Both are 4 credit hours with the same prerequisites.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367195 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369237,A,"COSC 367 is the honors version of COSC 360: the catalog describes it as ""Same as COSC 360 with additional honors project"".
+
+Otherwise the two courses match:
+- Both are 4 credit hours, with 3 hours lecture and 1 lab.
+- Both have the same prerequisites: ( COSC 303 or COSC 308) or ( ECE 351 or ECE 357) with a grade of C or better and ( COSC 230 or ECE 256) with a grade of C or better.
+- Either one, with a grade of C or better, satisfies the prerequisite for COSC 361, COSC 362, and COSC 401. ECE 358 accepts either one in place of ECE 256 or ECE 336.
+
+The excerpts don't say what the honors project involves or who is eligible to enroll in honors sections."
+cd059-B,cd059,What is the difference between COSC 360 and COSC 367?,"COSC 367 is Honors: Systems Programming, same as COSC 360 with an additional honors project. Both are 4 credit hours with the same prerequisites.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367195 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369237,B,"COSC 360 and COSC 367 cover the same core subject: systems programming. The course focuses on programming in C and using operating-system features such as files, processes, and memory.
+
+The difference is that COSC 367 is the honors version. UTK describes it as the same course as COSC 360, with an additional honors project. The department lists COSC 367 among its honors courses, and UTK curriculum materials accept either COSC 360 or COSC 367 for certain prerequisites, reflecting their overlap.
+
+In short, choose 360 for the regular course or 367 if you're taking the honors section and want the additional project."
+cd060-A,cd060,What is the difference between AI 101 and AI 111?,"AI 111 is the version for majors: restricted to CECS Applied Artificial Intelligence majors, with corequisite CECS 250. Students may not receive credit for both AI 101 and AI 111.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370844 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391384,A,"If you mean the University of Tennessee, Knoxville, the catalog identifies AI 101 as Introduction to the World of AI. UTK's catalog also lists AI 101 or AI 111 as acceptable prerequisites for a later AI course, so they appear to provide qualifying preparation, but the available catalog details don't show enough about AI 111 to explain its exact difference from AI 101.
+
+Course numbers vary by university: for example, the University at Buffalo uses AI 111 for AI & Ethics, which is unrelated to UTK's course numbering. So, for a precise comparison, check that both numbers are from UTK and the same catalog year."
+cd060-B,cd060,What is the difference between AI 101 and AI 111?,"AI 111 is the version for majors: restricted to CECS Applied Artificial Intelligence majors, with corequisite CECS 250. Students may not receive credit for both AI 101 and AI 111.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370844 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391384,B,"AI 101 and AI 111 cover the same content, but AI 111 is the version for Applied AI majors and has extra requirements. Both are 3 credit hours with identical descriptions covering AI concepts, history, data and tools, bias and ethics, and hands-on no-code AI platforms.
+
+The differences:
+
+- Who can take it: AI 111 is restricted to CECS Applied Artificial Intelligence majors. The AI 101 excerpt lists no registration restriction.
+- Corequisite: AI 111 has a corequisite of CECS 250. The AI 101 excerpt lists no prerequisite or corequisite.
+- Volunteer Core: AI 101 satisfies the Volunteer Core (EI) and (QR) requirements. The AI 111 excerpt lists no Volunteer Core designation.
+- Credit restriction: You cannot receive credit for both AI 101 and AI 111.
+
+Either course works as a prerequisite for AI 201, AI 202, and AI 495. Each of those requires ""AI 101* or AI 102* or AI 111""."
+cd062-A,cd062,How do COSC 362 and ECE 453 differ?,"They have the same description (Introduction to Computer Networks) and the same prerequisite, COSC 360 or COSC 367 with a grade of C or better; they are listed under different departments.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370073 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367231,A,"They aren't necessarily the same course. UT's current Tickle College page lists COSC 362 as Introduction to Deep Learning. ECE 453 is a computer-networks course: its Spring 2024 syllabus covers network architecture, protocols, congestion control, and peer-to-peer systems.
+
+The apparent conflict is that a 2024–25 catalog page labels COSC 362 ""Introduction to Computer Networks,"" while the ECE 453 catalog page provided is from 2010–11 and uses that same title. So the catalog entries appear to reflect different catalog years or a course-number/title change, rather than two current versions of the same class.
+
+For choosing a course, check the catalog and syllabus for the specific term you plan to take it. The available current program information also lists ECE 453 among Computer Engineering options, but that alone doesn't establish which requirements it satisfies for your degree."
+cd062-B,cd062,How do COSC 362 and ECE 453 differ?,"They have the same description (Introduction to Computer Networks) and the same prerequisite, COSC 360 or COSC 367 with a grade of C or better; they are listed under different departments.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370073 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367231,B,"In these excerpts, COSC 362 and ECE 453 differ only in their department, course number, and title. COSC 362 is ""Introduction to Computer Networks"", and ECE 453 is ""Computer Networks"".
+
+Everything else in their entries is the same:
+
+- Both are 3 credit hours.
+- Their descriptions match word for word. Both cover layered network architecture, physical media, data link protocols, network routing, the transport layer, network programming interfaces such as sockets, and applications, with examples drawn mainly from Internet protocols.
+- Both require COSC 360 or COSC 367 with a grade of C or better.
+- Both note that prior knowledge may satisfy the prerequisites with consent of instructor.
+
+The excerpts don't say whether the two courses are cross-listed or whether you can earn credit for both. Neither entry has a credit restriction naming the other, unlike COSC 434 and COSC 534. Check with your advisor before planning to take both."
+cd066-A,cd066,Who teaches COSC 325 in Spring 2027?,Not in the catalog; it does not list instructors or term offerings.,,A,"The catalog doesn't list instructors or term schedules, so it can't tell you who teaches COSC 325 in Spring 2027.
+
+What it does cover, if it helps with planning: COSC 325 (Introduction to Machine Learning) is 3 credit hours. Its prerequisites are ECE 313 or ECE 317 or MATH 323 with a grade of C or better, and MATH 251 or MATH 257 with a grade of C or better. Prior knowledge may satisfy the prerequisites with consent of the instructor."
+cd066-B,cd066,Who teaches COSC 325 in Spring 2027?,Not in the catalog; it does not list instructors or term offerings.,,B,"I can't reliably identify the instructor from the available results. UT's catalog lists COSC 325 as Introduction to Machine Learning, but it doesn't name an instructor; the Coursicle result mentions Spring 2027 professors, but the available excerpt doesn't show any names.
+
+The instructor may depend on the specific section. Check UT's Spring 2027 class schedule or registration system for the section listing."
+cd067-A,cd067,What days and time does MATH 141 meet?,"Not in the catalog; meeting times are in the timetable, not the catalog.",,A,"The available results don't show MATH 141's regular meeting days or times. The Banner page lists schedule terms, but the linked course detail is for Fall 2016, section 003, and doesn't include meeting information.
+
+Meeting times vary by term and section. Check UT's Schedule of Classes, choose the term, and search for MATH 141. The registrar's final-exam schedule gives exam times, not regular class meeting times."
+cd067-B,cd067,What days and time does MATH 141 meet?,"Not in the catalog; meeting times are in the timetable, not the catalog.",,B,"The catalog doesn't list meeting days or times for MATH 141, or for any course. It covers only course descriptions, credit hours, and prerequisites. For example, it lists MATH 141 as 4 credit hours with a prerequisite of MATH 130 with a grade of C or better."
+cd069-A,cd069,Is COSC 360 offered online or in the summer?,Not in the catalog; it does not state delivery modality or term offerings for individual courses.,,A,"I can't confirm from the available information that COSC 360 is offered online or during summer. UT's Summer Sessions page says summer classes may be online, hybrid, or in person, but it doesn't list COSC 360 among its examples. The list isn't exhaustive, so that alone doesn't confirm whether the course runs in summer.
+
+The instructor's teaching page lists CS 360/367 for Fall 2026 and shows past offerings in fall and spring, but no summer offering in the schedule shown. The Engineering Study Center lists COSC 360 as a course it supports, but that page doesn't specify when or how the course is taught.
+
+For a definite answer, check the MyUTK Schedule of Classes for the term you're considering. UT directs students to MyUTK for summer registration and course details."
+cd069-B,cd069,Is COSC 360 offered online or in the summer?,Not in the catalog; it does not state delivery modality or term offerings for individual courses.,,B,"The catalog excerpts don't say whether COSC 360 is offered online or in the summer. The course entry gives only the description, credit hours, contact hours, and prerequisites.
+
+What the catalog does say about COSC 360 - Systems Programming:
+
+- It is 4 credit hours, with 3 hours lecture and 1 lab.
+- Prerequisites are (COSC 303 or COSC 308) or (ECE 351 or ECE 357) with a grade of C or better, and (COSC 230 or ECE 256) with a grade of C or better.
+- An honors version, COSC 367, has the same prerequisites."
+cd070-A,cd070,What textbook is used in ECE 313?,Not in the catalog; textbooks are not listed.,,A,"If you mean ECE 313 at the University of Tennessee, Knoxville, I can't verify the textbook title from the available sources. A 2009 syllabus and student/course listings confirm the course is Probability and Random Variables, but the accessible details don't name a specific book.
+
+The textbook may vary by instructor or semester, so check the current course syllabus or Canvas page for the required title and edition."
+cd070-B,cd070,What textbook is used in ECE 313?,Not in the catalog; textbooks are not listed.,,B,"The catalog doesn't list textbooks, so I can't tell you which one ECE 313 uses. Its entry gives only the description, the credit hours (3), and the prerequisite: MATH 142 or MATH 148 with a grade of C or better."
+cd072-A,cd072,What is the average grade or grade distribution in COSC 311?,Not in the catalog; grade distributions are not listed.,,A,"The catalog doesn't include grade distributions or average grades for COSC 311 or any other course.
+
+The only grade information it gives for COSC 311 is about prerequisites:
+
+- To take COSC 311, you need COSC 202 with a grade of C or better, and either MATH 142 or MATH 148 with a grade of C or better.
+- To move on to COSC 312 or COSC 465, you need COSC 311 (or COSC 317) with a grade of C or better."
+cd072-B,cd072,What is the average grade or grade distribution in COSC 311?,Not in the catalog; grade distributions are not listed.,,B,"I couldn't verify an average grade or grade distribution for UTK COSC 311 from the sources found. The UTK catalog lists COSC 311 as a course option in the Computer Engineering curriculum, but the catalog page doesn't include grade statistics. A student profile also identifies COSC 311 as ""Honors: Algorithms,"" but gives no grade data.
+
+The grade-distribution site in the results is for Texas A&M, not UTK, so its figures wouldn't answer this question. You'd need UTK-specific grade data, such as a department or registrar report, to establish an average or distribution."
+s001-A,s001,whats the difference between COSC and CS or is that the same thing,"In the catalog, COSC is the course prefix used for Computer Science courses (for example COSC 103 Introduction to Computer Science). The degree itself is listed as 'Computer Science Major, BS in Computer Science'. The catalog does not use 'CS' as a course prefix.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391301 | https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,A,"At UTK, COSC and CS are related, but they aren't interchangeable in every context:
+
+CS is the common abbreviation for computer science, the subject or field.
+COSC is used in UTK course numbers, such as COSC 101. UTK's catalog also uses COSC course codes within its Computer Science degree requirements.
+So if you see COSC on a course listing, it means a computer science course. The major itself is called Computer Science or CS, not ""COSC."""
+s001-B,s001,whats the difference between COSC and CS or is that the same thing,"In the catalog, COSC is the course prefix used for Computer Science courses (for example COSC 103 Introduction to Computer Science). The degree itself is listed as 'Computer Science Major, BS in Computer Science'. The catalog does not use 'CS' as a course prefix.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391301 | https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734,B,"The catalog excerpts I have don't say whether ""CS"" and ""COSC"" mean the same thing. They don't define the COSC prefix or mention ""CS"" at all.
+
+What they do show is that the computing courses here all use the COSC prefix, such as COSC 370 Introduction to Scientific Computing, COSC 365 Programming Languages and Systems, and COSC 401 Senior Design Theory. None of the excerpts list a course with a ""CS"" prefix. If you're looking up a course or prerequisite, search by its COSC number."
+s003-A,s003,whats the prereq for cosc 202,"The 2026-2027 catalog has no course page for COSC 202. Data Structures is now COSC 203, whose prerequisite is COSC 103 with a grade of C or better and corequisite COSC 204.",,A,"The provided catalog excerpts don't include the COSC 202 course entry, so they don't say what its prerequisites are.
+
+Related information from the excerpts:
+
+- COSC 202 is itself a prerequisite, with a grade of C or better, for COSC 311, COSC 317, COSC 370, and COSC 303 (which also accepts COSC 203).
+- COSC 103 can't be taken for credit after you've received credit for COSC 202. That suggests COSC 103 comes earlier in the sequence, but the excerpts don't confirm it's a prerequisite for COSC 202.
+
+To get COSC 202's actual prerequisites, check its entry in the 2026-2027 catalog or ask your advisor."
+s003-B,s003,whats the prereq for cosc 202,"The 2026-2027 catalog has no course page for COSC 202. Data Structures is now COSC 203, whose prerequisite is COSC 103 with a grade of C or better and corequisite COSC 204.",,B,COSC 202 requires COSC 102 with a grade of C or better. The current and earlier UTK catalog listings give the same prerequisite. The course is worth 4 credit hours.
+s006-A,s006,which class teaches algorithms,"COSC 303 Algorithms (taken with the lab COSC 304 Algorithms Laboratory), or its honors version COSC 308. COSC 312 Algorithm Analysis and Automata covers analysis of algorithms, automata, and grammars.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391318 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391319 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391320 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369056,A,"The main one is COSC 303 - Algorithms (3 credit hours). It covers the design, analysis, and implementation of fundamental data structures and algorithms, including list and tree-based sorting, graph algorithms, and dynamic programming.
+- Prerequisite: COSC 202 or COSC 203 with a grade of C or better
+- Corequisite: COSC 304
+
+Other courses that cover algorithms:
+- MATH 371 - Numerical Algorithms (3 credit hours) covers algorithms for root finding, linear systems, interpolation, least-squares fitting, differentiation, integration, and ODEs. Its prerequisites are MATH 231; and MATH 200 or MATH 251 or MATH 257. It also requires knowledge of a high-level programming language. You can't receive credit for both MATH 371 and COSC 370.
+- COSC 101 and COSC 111 are introductory programming courses that include algorithm development. COSC 111 welcomes students with limited or no programming experience."
+s006-B,s006,which class teaches algorithms,"COSC 303 Algorithms (taken with the lab COSC 304 Algorithms Laboratory), or its honors version COSC 308. COSC 312 Algorithm Analysis and Automata covers analysis of algorithms, automata, and grammars.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391318 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391319 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391320 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369056,B,"At UT Knoxville, COSC 302: Data Structures and Algorithms is the main class that teaches algorithms. The Computer Science BS page lists it among the featured courses, and the department's course website also lists COSC 302.
+
+For more advanced study, COSC 312: Algorithm Analysis and Automata covers analyzing algorithms and related theory."
+s007-A,s007,which COSC classes teach cybersecurity stuff,COSC 366 Introduction to Cybersecurity; COSC 434 Network Security; COSC 466 Software Security; COSC 469 Human Factors in Cybersecurity; COSC 483 Applied Cryptography; COSC 489 Special Topics in Cybersecurity. The 400-level ones require COSC 366 or ECE 362 with a C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370070 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369503 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369505 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370252 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369506 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=371162,A,"At UT Knoxville, these COSC courses cover cybersecurity topics:
+
+Undergraduate
+COSC 366, Introduction to Cybersecurity: An overview of security goals, threat modeling, software and operating-system security, cryptography, network security, and human factors.
+COSC 434, Network Security: A more focused course on network security, listed in the computer science catalog's cybersecurity area.
+COSC 483, Applied Cryptography: Covers cryptography as it relates to cybersecurity; it appears among courses in the cybersecurity-minor materials.
+Graduate
+COSC 534, Network Security
+COSC 566, Software Security
+COSC 569, Human Factors in Cybersecurity
+COSC 583, Applied Cryptography
+The graduate listings also show COSC 690, Advanced Topics in Cybersecurity, though its specific content may vary by offering.
+
+For a starting point, look at COSC 366. Course titles and availability can change by catalog year, so check the current UT catalog or your degree audit before planning around a particular class."
+s007-B,s007,which COSC classes teach cybersecurity stuff,COSC 366 Introduction to Cybersecurity; COSC 434 Network Security; COSC 466 Software Security; COSC 469 Human Factors in Cybersecurity; COSC 483 Applied Cryptography; COSC 489 Special Topics in Cybersecurity. The 400-level ones require COSC 366 or ECE 362 with a C or better.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370070 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369503 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369505 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370252 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369506 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=371162,B,"The excerpts show three COSC cybersecurity courses:
+
+- COSC 366 - Introduction to Cybersecurity (3 credit hours) is a broad introduction covering security goals, threat modeling, software security, operating system security, cryptography, network security, and human factors. Prerequisites: COSC 202 with a grade of C or better, and either ECE 256 or COSC 230 with a grade of C or better. It's a required Term 5 course in the Computer Science BS.
+- COSC 469 - Human Factors in Cybersecurity (3 credit hours) covers how human-computer interaction applies to security, including authentication, phishing, usable secure communication, and usable cryptographic libraries. Prerequisite: COSC 366 or ECE 362 with a grade of C or better. You can't receive credit for both COSC 469 and COSC 569.
+- COSC 489 - Special Topics in Cybersecurity (3 credit hours) covers advanced topics of current interest. It may be repeated on a different topic, up to 6 hours maximum. Prerequisite: COSC 366 or ECE 362 with a grade of C or better.
+
+ECE 489 - Special Topics in Cybersecurity has the same description and prerequisites as COSC 489. For CS majors, any 3XX or 4XX COSC or ECE course not already used for degree requirements can count as an upper-division elective.
+
+These are only the courses that appear in the excerpts I was given, so the catalog may list other security-related COSC courses not shown here."
+s008-A,s008,what classes do i need before the CS capstone,"COSC 402 Senior Design Practicum requires COSC 401 Senior Design Theory with a C or better, and ENGL 102, ENGL 132, or ENGL 298 with a C or better. COSC 401 in turn requires COSC 360 or COSC 367 with a C or better.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369241 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369240,A,"Assuming you mean UT Knoxville, I can't verify the exact courses required before its CS capstone from the catalog result I found: the UTK page only returned a bot-verification screen, not the degree requirements.
+
+Don't use the University of Tennessee at Chattanooga's list as a substitute. UTC's catalog names CPSC 4910 as its senior capstone and lists CPSC 4900, Software Engineering, in that program; a UTC transfer pathway also includes CPSC 4910, but those are UTC requirements, not UTK's.
+
+Check your UTK catalog year or ask your CS academic advisor for the prerequisites tied to your program. If you share the capstone course number or a screenshot of your degree audit, I can help interpret it."
+s008-B,s008,what classes do i need before the CS capstone,"COSC 402 Senior Design Practicum requires COSC 401 Senior Design Theory with a C or better, and ENGL 102, ENGL 132, or ENGL 298 with a C or better. COSC 401 in turn requires COSC 360 or COSC 367 with a C or better.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369241 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369240,B,"The excerpts don't list prerequisites for any capstone course, so I can't say what you need first.
+
+The only capstones in these excerpts are CECS courses in the Applied Artificial Intelligence and Data Science programs. No ""CS"" or COSC capstone appears.
+- CECS 399 - CECS Transdisciplinary Capstone (3 credit hours) is scheduled in Term 6.
+- CECS 499 - CECS Senior Transdisciplinary Capstone (3 credit hours) is scheduled in Term 8.
+
+These are suggested terms in the program plan, not formal prerequisites. The only prerequisite stated anywhere in these excerpts is for a different course: CECS 485 requires CECS 385.
+
+To find the actual prerequisites for CECS 399 or CECS 499, check those courses' own catalog descriptions or ask your academic advisor. If you meant a capstone in a different program, such as Computer Science, that program's requirements aren't in these excerpts."
+s012-A,s012,do EE majors need differential equations,Yes. The Electrical Engineering BS lists MATH 231 Differential Equations I (or MATH 237 Honors) in Term 3.,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35741,A,"Yes. Electrical engineering majors generally need differential equations, because it's used to model circuits, signals, and other changing systems.
+
+If you mean UT Knoxville, the available catalog search result lists MATH 231, Differential Equations I, in the EE program's math-course information, though the catalog page itself wouldn't load for verification. UTK's engineering advising materials also include differential equations in the math sequence, and an engineering course offered through Tickle College lists MATH 231 as a prerequisite.
+
+Typical electrical engineering degree roadmap
+Typical electrical engineering degree roadmap
+Check your specific catalog year or degree audit for the exact course and timing, especially if you're transferring credits."
+s012-B,s012,do EE majors need differential equations,Yes. The Electrical Engineering BS lists MATH 231 Differential Equations I (or MATH 237 Honors) in Term 3.,https://catalog.utk.edu/preview_program.php?catoid=56&poid=35741,B,"Yes. The Electrical Engineering BS plan has you take a differential equations course in Term 3: either MATH 231 (Differential Equations I, 3 credit hours) or MATH 237 (Honors: Differential Equations I, 3 credit hours).
+
+The excerpts only cover Term 3 of the EE plan, so they don't show whether later terms require any further differential equations courses."
+s014-A,s014,whats the first ECE class im supposed to take,"In the Electrical Engineering BS, the first ECE courses are ECE 201 Circuits I and ECE 255 Introduction to Digital Logic Design, both in Term 3. Terms 1 and 2 have COSC 101 and COSC 103/104 instead.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35741,A,"If you mean UT Knoxville's Electrical Engineering program, ECE 202 (Introduction to Electrical and Computer Engineering) is likely the first ECE course to take. ECE 255 (Electric Circuits I) generally comes later, after its math and science prerequisites.
+
+I can't verify that sequence from the catalog pages available here: the current program page wouldn't load, and the other catalog material doesn't show the full course plan. Check your degree audit or advisor before registering, especially if you're a transfer student or in a different ECE major."
+s014-B,s014,whats the first ECE class im supposed to take,"In the Electrical Engineering BS, the first ECE courses are ECE 201 Circuits I and ECE 255 Introduction to Digital Logic Design, both in Term 3. Terms 1 and 2 have COSC 101 and COSC 103/104 instead.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=35741,B,"It depends on your major, since the catalog lays out different plans:
+
+- BS in Electrical Engineering: Your first ECE courses come in Term 3: ECE 201 - Circuits I (3 credit hours) and ECE 255 - Introduction to Digital Logic Design (3 credit hours). ECE 202 - Circuits II follows in Term 4.
+- BS in Computer Science: No ECE course is required. The first one you might take is in Term 4, where ECE 313 or ECE 317 (Probability and Random Variables, 3 credit hours) is one option for the probability requirement. STAT 251 or MATH 323 also satisfy it.
+
+The excerpts don't list prerequisites for ECE 201 or ECE 255, so check those course entries before registering. Both departments require at least a C in every ECE course used for the degree."
+s017-A,s017,is there an ECE class where we mess with robots,"Yes, ECE 476 Introduction to Robotics: sensing, planning, learning, kinematics, motion planning, and feedback control, with hands-on projects. Prerequisite MATH 251 or MATH 257, or consent of instructor; recommended background MATH 231.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=371490,A,"Yes. ECE 476, Introduction to Robotics, is a 3-credit course. It covers how robots sense their environment, kinematics and dynamics, motion planning such as pathfinding and trajectory generation, feedback control for manipulation and navigation, and basic machine learning for adaptive behavior. It includes lectures and hands-on projects where you design and implement robotic systems and algorithms.
+
+The prerequisite is MATH 251 or MATH 257, or consent of instructor. The recommended background is MATH 231 or equivalent."
+s017-B,s017,is there an ECE class where we mess with robots,"Yes, ECE 476 Introduction to Robotics: sensing, planning, learning, kinematics, motion planning, and feedback control, with hands-on projects. Prerequisite MATH 251 or MATH 257, or consent of instructor; recommended background MATH 231.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=371490,B,"Yes. UT Knoxville lists ECE 476: Introduction to Robotics in its undergraduate catalog, so that's the clearest match. The catalog information available here doesn't specify whether the class includes hands-on work with physical robots, so check the current syllabus or ask the ECE department before enrolling.
+
+There's also ECE 573: 3D Methods in Robot Sensing, Vision and Visualization, listed among graduate-level courses, though it sounds more focused on sensing and perception than building or operating robots."
+s018-A,s018,are ECE labs separate classes or part of the lecture,"ECE courses include their laboratory work inside the course: for example ECE 202 'includes laboratory exercises', ECE 255 has 'laboratory exercises', and ECE 256 has 'lab assignments'. The catalog lists no separate ECE laboratory courses, unlike COSC, which has separate 1-hour lab courses COSC 104, COSC 204, and COSC 304.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369151 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367211 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370074 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391302 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391317 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391319,A,"At UTK, it depends on the ECE course. In ECE 202, the lab is a separate scheduled meeting from lecture, but it's part of the course: students attend both, and labs count toward the course grade. The syllabus lists lecture meetings and lab experiments separately, with labs worth 15% of the grade.
+
+So, expect some ECE courses to have a distinct lab time, but check that course's schedule to see whether the lab is separately registered or included with the lecture section. ECE 202 appears as a 3-credit course in the computer engineering curriculum, while UTK course listings can specify lecture and lab contact hours separately."
+s018-B,s018,are ECE labs separate classes or part of the lecture,"ECE courses include their laboratory work inside the course: for example ECE 202 'includes laboratory exercises', ECE 255 has 'laboratory exercises', and ECE 256 has 'lab assignments'. The catalog lists no separate ECE laboratory courses, unlike COSC, which has separate 1-hour lab courses COSC 104, COSC 204, and COSC 304.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=369151 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=367211 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370074 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391302 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391317 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391319,B,"The excerpts don't state a general rule for ECE labs, but in the ECE courses shown, the lab work is part of the course itself rather than a separate class.
+
+- ECE 256 (3 credit hours) includes ""lectures and lab assignments"" and emphasizes ""hands-on and lab based exercises"" within the one course.
+- ECE 482 (3 credit hours) guides students through ""practical laboratory experiments"" as part of the course.
+- The Electrical Engineering curriculum excerpts list no separate ECE lab courses. By contrast, some non-ECE labs are listed separately, such as CHEM 123 (General Chemistry I Laboratory) alongside CHEM 122, and COSC 104 (Introduction to Computer Science Laboratory) alongside COSC 103.
+
+The excerpts don't include descriptions for other ECE courses, such as ECE 201 or ECE 202, so I can't confirm how those handle labs."
+s021-A,s021,do i need python before taking AI 102,AI 102 Natural Language-based Programming Techniques lists no prerequisites. The catalog does not name a programming language for it.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370985,A,"If you mean Microsoft's Azure AI-102 exam, you don't need to complete a Python course first, and there's no prerequisite exam. But you should be comfortable reading and modifying basic code in Python or C#, since the exam and hands-on work involve SDKs and code examples. Exam takers have also reported being able to choose Python or C# for code questions.
+
+If you mean UT's AI 102 course, that's a different course: the UT catalog identifies it as Natural Language-Based Programming Techniques. The pages available here don't confirm whether Python is a prerequisite, so check the course's catalog entry or ask the department before enrolling."
+s021-B,s021,do i need python before taking AI 102,AI 102 Natural Language-based Programming Techniques lists no prerequisites. The catalog does not name a programming language for it.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370985,B,"The catalog doesn't mention Python for AI 102. Its entry lists no prerequisites or corequisites at all, and the description says nothing about which programming language is used or whether prior programming experience is expected. Whether Python experience would help isn't something the catalog covers."
+s024-A,s024,is there a class about AI ethics,"Yes, AI 201 AI, Ethics, and Legal Frameworks (3 credit hours). Prerequisite: AI 101, AI 102, or AI 111.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370987,A,"Yes. AI 201 - AI, Ethics, and Legal Frameworks (3 credit hours) covers the ethical challenges of emerging AI, bias, fairness, and transparency in AI systems, privacy and data rights, and global legal and regulatory frameworks for AI.
+
+- Prerequisite: AI 101* or AI 102* or AI 111
+- In the Applied AI BS (Technical Communication Concentration): it's a required course, scheduled in Term 3.
+- In the Applied AI Certificate: it's one of the elective options.
+
+Some other courses touch on AI ethics as part of a broader topic. AI 111 and AI 401 both give ""special attention"" to bias, social impacts, and other ethical considerations of AI. AI 111 is restricted to CECS Applied Artificial Intelligence majors.
+
+If you're interested in ethics more generally, EEB 451* - Research Ethics (3 credit hours) is listed as a TOPS elective for the Applied AI major."
+s024-B,s024,is there a class about AI ethics,"Yes, AI 201 AI, Ethics, and Legal Frameworks (3 credit hours). Prerequisite: AI 101, AI 102, or AI 111.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370987,B,"Yes. UT Knoxville lists AI 201: AI, Ethics, and Legal Frameworks in its course catalog. A College of Communication and Information article also describes an undergraduate course called AI in Communication: Ethics, Tools and Impact.
+
+If you're looking for broader AI coursework, the Applied Artificial Intelligence certificate includes discussion of AI ethics and legal issues, including bias, privacy, transparency, and responsible development. Course offerings can vary by term, so check the current catalog or class schedule for availability."
+s025-A,s025,can i take AI classes without being an AI major,AI 101 and AI 102 list no registration restriction. AI 111 Introduction to the World of AI for Majors is restricted to CECS Applied Artificial Intelligence majors. The Applied Artificial Intelligence Certificate is listed as an add-on or stand-alone certificate.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370844 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370985 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391384 | https://catalog.utk.edu/preview_program.php?catoid=56&poid=36373,A,"Yes. At UT Knoxville, you don't have to major in AI to take AI courses. The College of Emerging and Collaborative Studies says its exploratory courses, including AI 101: Introduction to the World of AI, are available to all UT students and are designed for students across disciplines, including those outside computer science.
+
+If you want more than an introductory course, UT also offers a 12-credit Applied Artificial Intelligence certificate that can be added to any degree program. It covers AI topics such as machine learning, deep learning, and natural language processing.
+
+Before registering, check the course catalog for any prerequisites or enrollment restrictions, and ask your academic advisor how the course or certificate fits your degree requirements."
+s025-B,s025,can i take AI classes without being an AI major,AI 101 and AI 102 list no registration restriction. AI 111 Introduction to the World of AI for Majors is restricted to CECS Applied Artificial Intelligence majors. The Applied Artificial Intelligence Certificate is listed as an add-on or stand-alone certificate.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370844 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370985 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=391384 | https://catalog.utk.edu/preview_program.php?catoid=56&poid=36373,B,"The excerpts don't answer this for AI courses in general. They only show the registration restriction for one course.
+
+- AI 111 (Introduction to the World of AI for Majors, 3 credit hours) is restricted to CECS Applied Artificial Intelligence majors. It has a corequisite of CECS 250.
+- AI 101 (Introduction to the World of AI, 3 credit hours) is a separate course. You can't receive credit for both AI 101 and AI 111. The excerpts don't include AI 101's course entry, so I can't tell you whether it's open to non-majors.
+- Other AI courses appear in the major's plan, including AI 102, AI 201, AI 202, AI 301, AI 302, AI 401, AI 295, AI 311, AI 395, and AI 495. None of their course entries are included here, so their prerequisites and registration restrictions aren't shown.
+
+To check whether a specific AI course is open to you, look up that course's entry in the catalog or ask an advisor in the department."
+s030-A,s030,which DATA class teaches how to clean messy data,"DATA 304 Data Wrangling: taking data from real-world sources and converting it into an easily accessible format for analysis, including importing data, tidying data, string processing, HTML parsing, dates and times, and text mining. Prerequisite: DATA 101 or DATA 111.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370980,A,"The clearest course match is BZAN 557: Text Mining. UTK's catalog says it covers textual data cleaning, so it's the best fit if you mean cleaning text data. It isn't a course with a DATA prefix, though.
+
+For general messy-data cleanup, UT Libraries also lists a hands-on data-wrangling workshop, and its text-and-data-mining guide recommends OpenRefine for cleaning messy data."
+s030-B,s030,which DATA class teaches how to clean messy data,"DATA 304 Data Wrangling: taking data from real-world sources and converting it into an easily accessible format for analysis, including importing data, tidying data, string processing, HTML parsing, dates and times, and text mining. Prerequisite: DATA 101 or DATA 111.",https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370980,B,"DATA 304 - Data Wrangling (3 credit hours) is the DATA course for this. It covers taking data from real-world sources and converting it into an easily accessible format for analysis, including importing data, tidying data, string processing, HTML parsing, working with dates and times, and text mining.
+
+The course listing gives the prerequisite as DATA 101* or DATA 111. However, the Data Science Certificate footnotes say DATA 202* is the prerequisite for DATA 304. Because these conflict, confirm with your advisor which one applies before you register. In the BS in Data Science plan, DATA 304 is in Term 6.
+
+Two non-DATA courses also cover data cleaning:
+- AI 302 - AI-based Data Handling and Visualization covers AI tools for data preprocessing and cleaning. Its prerequisite is AI 101* or AI 102* or AI 111.
+- COSC 426 - Introduction to Data Engineering includes addressing imperfections in real-world datasets. Its prerequisites are:
+ - COSC 302 or COSC 307 with a grade of C or better
+ - MATH 251 or MATH 257 with a grade of C or better
+ - ECE 313 or ECE 317 or MATH 323 or STAT 251 with a grade of C or better
+
+ With consent of the instructor, prior knowledge may satisfy these."
+s031-A,s031,is there a class for making charts and dashboards,DATA 202 Data Management and Visualization covers visualization of time-series and geospatial data and presenting data such as heat maps and infographics. DATA 401 Visual Analytics covers data visualization and interactive visual interfaces. AI 302 AI-based Data Handling and Visualization also covers visualization.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370393 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370981 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370990,A,"None of the excerpts mention dashboards specifically, but two courses cover data visualization:
+
+- DATA 202 - Data Management and Visualization (3 credit hours) is the closest match. It covers visualization of time-series and geospatial data and best practices for presenting data to inform decision making, such as heat maps and infographics. Prerequisite: DATA 101* or DATA 111. It satisfies the Volunteer Core (QR) requirement.
+- AI 302 - AI-based Data Handling and Visualization (3 credit hours) includes visualization techniques for high-dimensional data using AI tools and libraries. Prerequisite: AI 101* or AI 102* or AI 111."
+s031-B,s031,is there a class for making charts and dashboards,DATA 202 Data Management and Visualization covers visualization of time-series and geospatial data and presenting data such as heat maps and infographics. DATA 401 Visual Analytics covers data visualization and interactive visual interfaces. AI 302 AI-based Data Handling and Visualization also covers visualization.,https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370393 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370981 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370990,B,"Yes. At UT Knoxville, BAS 454: Data Visualization for Business Analysts appears in the catalog as a 3-credit course, and it sounds like the closest match for learning to make charts and dashboards.
+
+The Business Analytics program also lists data visualization among its areas of study, while UT's library guide points students toward tools such as Power BI and Tableau for visualization work. I'd check the current course schedule or ask the department whether BAS 454 is offered this term, since I can't confirm its current availability from the catalog page."
+s033-A,s033,do data science students have to take machine learning,"The Data Science BS does not require a course titled machine learning. It requires DATA 203 Analytical Methods of Data Science in Term 4, whose description includes topics in statistics, machine learning, and optimization, and DATA 303 Advanced Data Analysis in Term 5.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36397 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370395,A,"No standalone machine learning course is required for the Data Science BS in these excerpts, but you will cover machine learning topics in a required course.
+
+- DATA 203 - Analytical Methods of Data Science (3 credit hours) is part of the BS plan in Term 4. It covers ""topics in statistics, machine learning, and optimization"". Its prerequisites are DATA 101 or DATA 111, plus DATA 102.
+- COSC 322 - Tools for Applied Machine Learning (3 credit hours) is a dedicated ML course. It does not appear in the BS plan or the listed Data Science program electives. Its prerequisite is COSC 101 or COSC 102 [Inactive] or COSC 111 or EF 230, and instructor consent may substitute for prior knowledge.
+- Your 30 TOPS credit hours depend on which certificate, minor, or second major you choose. The excerpts don't show whether any of those would require an ML course.
+
+If you're asking about the Data Science Certificate instead, DATA 203 is only one of the electives, not a requirement. The only required course is DATA 101."
+s033-B,s033,do data science students have to take machine learning,"The Data Science BS does not require a course titled machine learning. It requires DATA 203 Analytical Methods of Data Science in Term 4, whose description includes topics in statistics, machine learning, and optimization, and DATA 303 Advanced Data Analysis in Term 5.",https://catalog.utk.edu/preview_program.php?catoid=56&poid=36397 | https://catalog.utk.edu/preview_course_nopop.php?catoid=56&coid=370395,B,"If you mean the University of Tennessee, Knoxville's BS in Data Science, the program description says students learn to use techniques such as machine learning, and the online degree page also mentions applying machine-learning techniques. So you should expect to study it, but the pages available here don't confirm that a separate machine-learning course is a required class.
+
+The UTK catalog result lists a machine-learning course for a different program, the Data Science Graduate Certificate, so that doesn't establish the BSDS requirement. For a definite answer about a specific catalog year, check the BSDS degree requirements or ask the program advisor."
+s034-A,s034,do we use python or java more in CS,The catalog does not say. No scraped COSC course description names Python or Java.,,A,"The catalog excerpts don't say whether Python or Java is used more in the CS curriculum. Neither language is named in any of them.
+
+The only languages they do mention:
+
+- COSC 360 - Systems Programming is described as an ""in-depth introduction to C and its use in system programming,"" including assembly code.
+- COSC 103 - Introduction to Computer Science covers ""modular programming in an object-oriented programming language"" but doesn't name which one.
+
+For which languages specific courses use, the CS department or a course instructor would be the best source."
+s034-B,s034,do we use python or java more in CS,The catalog does not say. No scraped COSC course description names Python or Java.,,B,"It depends on the area of computer science, but Python is often used more broadly across coursework and fields like machine learning, data science, and scripting. Java remains common for object-oriented programming, software engineering, and some production systems.
+
+If you mean UTK's CS program, the available examples show both languages are used: the MSCS program lists Java and Python among relevant programming languages, and a UTK machine-learning course recommends Python while allowing Java as an option. A UTK alumni profile also describes using Java alongside some Python, so there isn't one language used everywhere.
+
+If you're choosing which to learn first, start with Python for a gentle introduction and broad use. Learn Java too if your classes or projects call for it."
+s038-A,s038,how does the waitlist work like does it enroll me automatically,The catalog does not describe registration waitlist mechanics.,,A,"For a UTK class waitlist, joining it doesn't mean you're enrolled right away. If a seat opens and you're eligible, the registration system may add you from the waitlist, but it isn't guaranteed. UTK recommends checking MyUTK for an opening, and the waitlist is limited to one section of that course at a time.
+
+Keep checking MyUTK and your UT email, and don't assume you're in the class until it appears on your schedule.."
+s038-B,s038,how does the waitlist work like does it enroll me automatically,The catalog does not describe registration waitlist mechanics.,,B,"The catalog excerpts I have don't cover waitlists, so I can't tell you how the waitlist works or whether it enrolls you automatically. The Office of the Registrar or your advisor can answer that."
+s040-A,s040,is data structures actually as hard as everybody says,The catalog does not rate course difficulty. It only lists COSC 203 Data Structures' description and prerequisites.,,A,"It can be challenging, but it's not impossible or ""naturally hard"" for everyone. The tough part is usually learning to reason about how data is organized and how operations behave, then translating that reasoning into working code. That's different from simply memorizing syntax.
+
+The workload can make it feel harder. One Duke course description calls its pace aggressive and says students need steady effort, especially if they're new to programming. Its advice is to get the fundamentals solid early, since later topics build on them. A Coursera specialization likewise teaches the material through many programming challenges, suggesting that repeated practice is a big part of learning it.
+
+People's experiences vary by course and background. Student discussions and course reviews describe data structures courses as demanding, but those are individual reports, not a universal measure of difficulty. If you keep up with the work and practice tracing code by hand, you'll likely find it manageable, even if it takes time to click.
+
+A useful starting routine: implement a structure, test it with small examples, and explain its time and space costs in plain language. If you're comfortable with basic programming but new to data structures, expect a learning curve rather than a reason to panic."
+s040-B,s040,is data structures actually as hard as everybody says,The catalog does not rate course difficulty. It only lists COSC 203 Data Structures' description and prerequisites.,,B,"The catalog doesn't say anything about how hard a course is, so I can't answer that from it.
+
+Here is what it does say about Data Structures:
+
+- COSC 203 - Data Structures is 3 credit hours and covers the design, analysis, and implementation of lists, stacks, queues, hash tables, binary search trees, and heaps.
+- Its prerequisite is COSC 103 with a grade of C or better.
+- You must take COSC 204 - Data Structures Laboratory (1 credit hour) as a corequisite.
+- COSC 203 with a grade of C or better is one way to meet the prerequisite for COSC 303 - Algorithms (COSC 202 is the other)."
