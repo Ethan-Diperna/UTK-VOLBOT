@@ -36,6 +36,21 @@ def test_clean_removes_every_shape_of_the_sources_bar(trailer):
     assert mbs.clean_response(f"Check the syllabus for the title.\n1\n\n\n{trailer}") == "Check the syllabus for the title."
 
 
+def test_clean_removes_the_table_toolbar_the_copy_button_drags_along():
+    raw = "MATH 141\nCalculus I\nPlacement level 4\n\nCopy\n\nTranslate\n\nTTS\n\nExport\nBoth need trigonometry."
+    assert mbs.clean_response(raw) == "MATH 141\nCalculus I\nPlacement level 4\nBoth need trigonometry."
+
+
+def test_clean_collapses_a_line_repeated_right_after_itself():
+    raw = "It is required.\n\nTypical degree roadmap\nTypical degree roadmap\nCheck your audit."
+    assert mbs.clean_response(raw) == "It is required.\n\nTypical degree roadmap\nCheck your audit."
+
+
+def test_clean_keeps_the_word_copy_in_a_normal_sentence():
+    text = "Copy the form and send it to your advisor.\nExport options are listed there."
+    assert mbs.clean_response(text) == text
+
+
 def test_clean_keeps_the_word_sources_when_it_is_part_of_the_answer():
     text = "The catalog and the timetable are separate.\nSources of truth differ by office."
     assert mbs.clean_response(text) == text

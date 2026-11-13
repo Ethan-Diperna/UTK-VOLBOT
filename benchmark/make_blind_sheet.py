@@ -48,6 +48,8 @@ CITATION_RE = re.compile(r"\s*\[\d+(?:\s*,\s*\d+)*\](?:\s*[–-]\s*\[\d+\])?")
 # Learn More / 6 Images", sometimes with "Click to view sources" in it.
 TRAILER_RE = re.compile(r"\n\s*Sources\s*(?:\n\s*(?:\d+|Click to view sources|\d+ Referenced|"
                         r"Learn More|\d+ Images?)\s*)*\s*$")
+# Copying an answer that holds a table also copies the table's toolbar buttons.
+TOOLBAR_RE = re.compile(r"\n\s*Copy\s*\n\s*Translate\s*\n\s*TTS\s*\n\s*Export[ \t]*(?=\n|$)")
 QUOTES = {"‘": "'", "’": "'", "“": '"', "”": '"', " ": " "}
 
 
@@ -76,7 +78,10 @@ def clean_response(text: str) -> str:
     for curly, plain in QUOTES.items():
         text = text.replace(curly, plain)
     text = TRAILER_RE.sub("", text)
+    text = TOOLBAR_RE.sub("", text)
     text = _drop_marker_lines(text)
+    # An image's caption is copied twice in a row; keep one.
+    text = re.sub(r"^(.+)\n\1$", r"\1", text, flags=re.M)
     text = LINK_CITATION_RE.sub("", text)
     text = CITATION_RE.sub("", text)
     text = text.replace("**", "").replace("`", "")
