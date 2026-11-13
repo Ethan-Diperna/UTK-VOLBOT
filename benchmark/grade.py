@@ -107,12 +107,41 @@ def _ask_grade(row: dict, stream, out, opener: Callable[[str], object]) -> tuple
         return label, notes
 
 
+def grade_counts(path: Path = GRADES_PATH) -> dict[str, int]:
+    """Item -> how many times it has been graded (2 or more means regraded)."""
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8", newline="") as f:
+        counts: dict[str, int] = {}
+        for row in csv.DictReader(f):
+            counts[row["item"]] = counts.get(row["item"], 0) + 1
+        return counts
+
+
+def read_item_list(path: Path) -> list[str]:
+    """Item ids from a text file, one per line; blank lines and # comments are ignored."""
+    lines = (line.strip() for line in path.read_text(encoding="utf-8").splitlines())
+    return [line for line in lines if line and not line.startswith("#")]
+
+
 def run(sheet_path: Path = SHEET_PATH, grades_path: Path = GRADES_PATH, stream=sys.stdin, out=sys.stdout,
-        redo: str | None = None, opener: Callable[[str], object] = webbrowser.open) -> int:
-    """Grade the pending items (or just `redo`). Returns how many were saved."""
+        redo: str | list[str] | None = None, opener: Callable[[str], object] = webbrowser.open,
+        skip_regraded: bool = False) -> int:
+    """Grade the pending items, or the items in `redo` again. With
+    `skip_regraded`, redo items that already have a second grade are left
+    out, so a long redo list can be stopped and continued. Returns how many
+    grades were saved."""
     sheet = load_sheet(sheet_path)
     graded = load_grades(grades_path)
-    todo = [r for r in sheet if (r["item"] == redo if redo else r["item"] not in graded)]
+    wanted = [redo] if isinstance(redo, str) else list(redo or [])
+    unknown = sorted(set(wanted) - {r["item"] for r in sheet})
+    if unknown:
+        raise ValueError(f"not on the sheet: {', '.join(unknown)}")
+    if wanted:
+        counts = grade_counts(grades_path) if skip_regraded else {}
+        todo = [r for r in sheet if r["item"] in wanted and counts.get(r["item"], 0) < 2]
+    else:
+        todo = [r for r in sheet if r["item"] not in graded]
     saved = 0
     for position, row in enumerate(todo, start=1):
         out.write(format_item(row, position, len(todo)))
@@ -130,7 +159,9 @@ def run(sheet_path: Path = SHEET_PATH, grades_path: Path = GRADES_PATH, stream=s
 def main() -> None:
     ap = argparse.ArgumentParser(description="Hand-grade the blind sheet.")
     ap.add_argument("--status", action="store_true")
-    ap.add_argument("--redo", metavar="ITEM", help="grade one item again, e.g. s014-B")
+    ap.add_argument("--redo", metavar="ITEM", nargs="+", help="grade these items again, e.g. s014-B")
+    ap.add_argument("--redo-file", type=Path, metavar="FILE",
+                    help="grade again every item listed in FILE (one per line); can be stopped and continued")
     a = ap.parse_args()
     for stream in (sys.stdout, sys.stdin):
         if hasattr(stream, "reconfigure"):
@@ -141,8 +172,15 @@ def main() -> None:
         sheet, graded = load_sheet(), load_grades()
         left = [r["item"] for r in sheet if r["item"] not in graded]
         print(f"{len(sheet) - len(left)} of {len(sheet)} graded; {len(left)} left")
+        if a.redo_file:
+            counts, listed = grade_counts(), read_item_list(a.redo_file)
+            done = sum(1 for item in listed if counts.get(item, 0) >= 2)
+            print(f"{done} of {len(listed)} items in {a.redo_file.name} regraded; {len(listed) - done} left")
         return
-    run(redo=a.redo)
+    if a.redo_file:
+        run(redo=read_item_list(a.redo_file), skip_regraded=True)
+    else:
+        run(redo=a.redo)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,8 @@
 import csv
 import io
 
+import pytest
+
 from benchmark import grade
 
 SHEET_ROWS = [
@@ -75,6 +77,35 @@ def test_redo_replaces_an_earlier_grade(tmp_path):
     grade.run(sheet, grades_path, stream=io.StringIO("1\n\nq\n"), out=io.StringIO())
     grade.run(sheet, grades_path, stream=io.StringIO("2\nmissed the lab\n"), out=io.StringIO(), redo="q1-A")
     assert grade.load_grades(grades_path)["q1-A"]["label"] == "partially_correct"
+
+
+def test_redo_list_shows_only_the_listed_items_and_can_be_resumed(tmp_path):
+    sheet, grades_path = make_sheet(tmp_path), tmp_path / "human_grades.csv"
+    grade.run(sheet, grades_path, stream=io.StringIO("1\n\n1\n\n1\n\n"), out=io.StringIO())       # first pass: all "correct"
+    listed = ["q1-B", "q2-A"]
+    first = grade.run(sheet, grades_path, stream=io.StringIO("6\nsays 4, catalog says 3\nq\n"), out=io.StringIO(),
+                      redo=listed, skip_regraded=True)
+    out = io.StringIO()
+    second = grade.run(sheet, grades_path, stream=io.StringIO("4\n\n"), out=out, redo=listed, skip_regraded=True)
+    grades = grade.load_grades(grades_path)
+    assert (first, second) == (1, 1)
+    assert grades["q1-A"]["label"] == "correct"                  # not listed, untouched
+    assert grades["q1-B"]["label"] == "hallucinated" and grades["q2-A"]["label"] == "correct_refusal"
+    assert "It is 4 hours." not in out.getvalue()                # q1-B was not shown a second time
+    assert grade.grade_counts(grades_path) == {"q1-A": 1, "q1-B": 2, "q2-A": 2}
+
+
+def test_redo_refuses_an_item_that_is_not_on_the_sheet(tmp_path):
+    sheet, grades_path = make_sheet(tmp_path), tmp_path / "human_grades.csv"
+    with pytest.raises(ValueError) as e:
+        grade.run(sheet, grades_path, stream=io.StringIO(""), out=io.StringIO(), redo=["q1-A", "q9-Z"])
+    assert "q9-Z" in str(e.value)
+
+
+def test_item_list_file_ignores_comments_and_blank_lines(tmp_path):
+    path = tmp_path / "flagged.txt"
+    path.write_text("# why these\n\nq1-B\n  q2-A  \n# end\n", encoding="utf-8")
+    assert grade.read_item_list(path) == ["q1-B", "q2-A"]
 
 
 def test_end_of_input_stops_cleanly_without_saving_a_half_entered_grade(tmp_path):

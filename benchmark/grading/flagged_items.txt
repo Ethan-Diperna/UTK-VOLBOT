@@ -1,0 +1,69 @@
+# Blind-sheet items regraded by hand on the second grading pass.
+#
+# Background: the first hand-grading pass (2026-11-13) marked 134 of 136
+# responses "correct" in about five minutes and was discarded as a set of
+# real grades. An AI review of that grading session, pasted by the project
+# author, flagged the 59 items below as mislabelled. The author chose to
+# regrade these 59 and keep the first-pass label for the other 77.
+# The README states this.
+#
+# One item per line. Used with: python -m benchmark.grade --redo-file <this file>
+cd010-B
+cd017-B
+cd018-A
+cd019-A
+cd026-A
+cd028-A
+cd030-B
+cd031-A
+cd033-A
+cd036-B
+cd038-A
+cd039-B
+cd042-B
+cd043-A
+cd044-B
+cd045-B
+cd047-A
+cd048-B
+cd049-B
+cd050-B
+cd051-B
+cd056-B
+cd058-B
+cd060-A
+cd062-A
+cd062-B
+cd066-A
+cd066-B
+cd067-A
+cd067-B
+cd069-A
+cd069-B
+cd070-A
+cd070-B
+cd072-A
+cd072-B
+s001-B
+s003-A
+s003-B
+s006-B
+s007-A
+s007-B
+s008-A
+s008-B
+s012-A
+s014-A
+s017-B
+s018-A
+s021-A
+s025-B
+s030-A
+s031-B
+s033-B
+s034-A
+s034-B
+s038-A
+s038-B
+s040-A
+s040-B
