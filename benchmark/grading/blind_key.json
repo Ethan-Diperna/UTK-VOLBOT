@@ -1,0 +1,280 @@
+{
+  "seed": 20261113,
+  "created_at": "2026-11-13T16:55:28+00:00",
+  "run_dir": "20261113T165341Z_test",
+  "n_questions": 68,
+  "assignments": {
+    "cd001": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd002": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd003": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd004": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd005": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd007": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd008": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd010": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd012": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd013": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd015": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd016": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd017": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd018": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd019": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd023": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd024": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd026": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd027": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd028": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd030": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd031": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd032": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd033": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd034": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd036": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd038": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd039": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd040": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd041": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd042": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd043": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd044": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd045": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd046": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd047": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd048": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd049": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd050": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd051": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd056": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd058": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd059": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd060": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd062": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd066": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "cd067": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd069": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd070": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "cd072": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s001": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s003": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s006": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s007": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s008": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s012": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s014": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s017": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s018": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s021": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s024": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s025": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s030": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s031": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s033": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s034": {
+      "A": "ours",
+      "B": "baseline"
+    },
+    "s038": {
+      "A": "baseline",
+      "B": "ours"
+    },
+    "s040": {
+      "A": "baseline",
+      "B": "ours"
+    }
+  }
+}
