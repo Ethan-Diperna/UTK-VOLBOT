@@ -1,18 +1,23 @@
+/* Dark theme: warm charcoal gray with University of Tennessee orange trims.
+   Change the look by editing these variables only. */
 :root {
-  --paper: #faf8f3;
-  --ink: #24221f;
-  --muted: #6f6a62;
-  --line: #e4dfd5;
-  --card: #ffffff;
-  --accent: #b5532f;
-  --accent-ink: #ffffff;
-  --error: #9b2c2c;
+  color-scheme: dark;            /* dark scrollbars and form controls */
+  --paper: #262624;              /* page background */
+  --card: #30302e;               /* input box and excerpt panels */
+  --ink: #ece9e1;                /* main text */
+  --muted: #a6a39a;              /* secondary text */
+  --line: #45443f;               /* borders */
+  --accent: #ff8200;             /* Vol orange */
+  --accent-soft: rgba(255, 130, 0, 0.14);
+  --accent-ink: #1f1e1c;         /* text on orange: dark, white is too faint on it */
+  --error: #ff9c8f;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
+  border-top: 3px solid var(--accent);
   background: var(--paper);
   color: var(--ink);
   font: 17px/1.55 Georgia, "Times New Roman", serif;
@@ -31,6 +36,16 @@ h1 {
   letter-spacing: -0.01em;
 }
 
+h1::after {
+  content: "";
+  display: block;
+  width: 2.6rem;
+  height: 3px;
+  margin-top: 0.55rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
 .sub { margin: 0 0 1.6rem; color: var(--muted); }
 
 .visually-hidden {
@@ -47,8 +62,10 @@ form {
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 0.9rem 1rem 0.7rem;
-  box-shadow: 0 1px 2px rgba(36, 34, 31, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
+
+textarea::placeholder { color: var(--muted); opacity: 0.75; }
 
 textarea {
   width: 100%;
@@ -60,7 +77,7 @@ textarea {
   font: inherit;
 }
 
-form:focus-within { border-color: var(--accent); }
+form:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 
 .form-row {
   display: flex;
@@ -73,7 +90,15 @@ form:focus-within { border-color: var(--accent); }
 .options { color: var(--muted); font: 0.85rem/1.4 system-ui, sans-serif; }
 .options summary { cursor: pointer; padding: 0.45rem 0; }
 .options label { display: block; margin: 0.3rem 0 0.2rem; }
-.options select { font: inherit; padding: 0.25rem 0.4rem; border: 1px solid var(--line); border-radius: 6px; }
+.options select {
+  font: inherit;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+summary::marker { color: var(--accent); }
 
 button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
 
@@ -85,6 +110,7 @@ button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
   color: var(--accent-ink);
 }
 
+#send:hover { filter: brightness(1.08); }
 #send:disabled { opacity: 0.55; cursor: wait; }
 #send:focus-visible, .chip:focus-visible, a:focus-visible, summary:focus-visible {
   outline: 2px solid var(--accent);
@@ -103,7 +129,7 @@ button { font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; }
   font-size: 0.85rem;
 }
 
-.chip:hover { border-color: var(--accent); color: var(--ink); }
+.chip:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
 
 #status { margin: 1.5rem 0 0; color: var(--muted); font-style: italic; }
 #status.error { color: var(--error); font-style: normal; }
@@ -120,16 +146,17 @@ a.cite {
   min-width: 1.35em;
   margin: 0 0.12em;
   padding: 0 0.3em;
-  border: 1px solid var(--line);
+  border: 1px solid var(--accent);
   border-radius: 5px;
-  background: var(--card);
+  background: var(--accent-soft);
   font: 600 0.72rem/1.5 system-ui, sans-serif;
   text-align: center;
   text-decoration: none;
   vertical-align: 0.15em;
 }
 
-a.cite:hover { border-color: var(--accent); }
+a.cite:hover { background: var(--accent); color: var(--accent-ink); }
+#answer strong { color: #fff; }
 
 #sources-panel {
   margin-top: 1.25rem;
@@ -147,14 +174,7 @@ a.cite:hover { border-color: var(--accent); }
 #other-sources { margin: 0.6rem 0 0; padding-left: 1.2rem; }
 #other-source-count { font-weight: 400; }
 
-.badge {
-  margin-left: 0.45rem;
-  padding: 0.05rem 0.4rem;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-ink);
-  font-size: 0.7rem;
-}
+#sources li::marker { color: var(--accent); font-weight: 600; }
 
 .excerpt summary { cursor: pointer; color: var(--muted); font-size: 0.82rem; }
 
